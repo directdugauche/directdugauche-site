@@ -114,10 +114,27 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .hero p {
+        .hero-subtitle {
             font-size: 1.3rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .fist-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-gold);
+            animation: punch 2s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        @keyframes punch {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(5px) rotate(-5deg); }
         }
 
         .cta-button {
@@ -285,8 +302,15 @@
                 font-size: 2.5rem;
             }
             
-            .hero p {
+            .hero-subtitle {
                 font-size: 1.1rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .fist-icon {
+                width: 35px;
+                height: 35px;
             }
             
             section {
@@ -325,7 +349,41 @@
     <section class="hero" id="accueil">
         <div class="hero-content">
             <h1>Direct Du Gauche</h1>
-            <p>Le parti coup de poing</p>
+            <div class="hero-subtitle">
+                <svg class="fist-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Poignet/Avant-bras -->
+                    <rect x="15" y="65" width="70" height="25" rx="12" ry="12"/>
+                    
+                    <!-- Poing principal -->
+                    <ellipse cx="50" cy="45" rx="30" ry="25"/>
+                    
+                    <!-- Doigts repliés -->
+                    <rect x="25" y="25" width="12" height="35" rx="6" ry="6"/>
+                    <rect x="40" y="20" width="12" height="35" rx="6" ry="6"/>
+                    <rect x="55" y="22" width="12" height="35" rx="6" ry="6"/>
+                    <rect x="70" y="28" width="12" height="35" rx="6" ry="6"/>
+                    
+                    <!-- Pouce -->
+                    <ellipse cx="22" cy="55" rx="8" ry="15" transform="rotate(-20 22 55)"/>
+                </svg>
+                <span>Le parti coup de poing</span>
+                <svg class="fist-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Poignet/Avant-bras -->
+                    <rect x="15" y="65" width="70" height="25" rx="12" ry="12"/>
+                    
+                    <!-- Poing principal -->
+                    <ellipse cx="50" cy="45" rx="30" ry="25"/>
+                    
+                    <!-- Doigts repliés -->
+                    <rect x="25" y="25" width="12" height="35" rx="6" ry="6"/>
+                    <rect x="40" y="20" width="12" height="35" rx="6" ry="6"/>
+                    <rect x="55" y="22" width="12" height="35" rx="6" ry="6"/>
+                    <rect x="70" y="28" width="12" height="35" rx="6" ry="6"/>
+                    
+                    <!-- Pouce -->
+                    <ellipse cx="22" cy="55" rx="8" ry="15" transform="rotate(-20 22 55)"/>
+                </svg>
+            </div>
             <a href="#programme" class="cta-button">Découvrir notre programme</a>
         </div>
     </section>
@@ -478,5 +536,4 @@
         });
     </script>
 </body>
-"Ajout du site Direct Du Gauche"
-"A</html>
+</html>

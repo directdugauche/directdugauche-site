@@ -1,33 +1,508 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Poing intégré en SVG</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      text-align: center;
-      background-color: #f0f0f0;
-    }
-    .fist-icon {
-      width: 120px;
-      height: auto;
-      fill: #333; /* Couleur du poing */
-      margin-top: 1rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Du Gauche - Un Avenir Solidaire</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #d32f2f;
+            --secondary-red: #b71c1c;
+            --accent-gold: #ffc107;
+            --text-dark: #1a1a1a;
+            --text-light: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-gradient: linear-gradient(135deg, #d32f2f 0%, #b71c1c 50%, #8d1919 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(211, 47, 47, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,193,7,0.1)" points="0,1000 1000,0 1000,1000"/></svg>') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .fist-icon {
+            width: 50px;
+            height: 50px;
+            animation: punch 2s ease-in-out infinite;
+            filter: brightness(0) saturate(100%) invert(78%) sepia(79%) saturate(403%) hue-rotate(360deg) brightness(103%) contrast(103%) drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
+        }
+
+        @keyframes punch {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(5px) rotate(-5deg); }
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-red);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-red);
+            box-shadow: 0 15px 30px rgba(211, 47, 47, 0.2);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+
+        /* Program Section */
+        .program-item {
+            background: var(--bg-light);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-red);
+            transition: all 0.3s ease;
+        }
+
+        .program-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--bg-gradient);
+            padding: 3rem;
+            border-radius: 20px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .submit-btn {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #ffb300;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .fist-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Direct Du Gauche</a>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#valeurs">Nos Valeurs</a></li>
+                <li><a href="#programme">Programme</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <h1>Page avec un poing (SVG intégré)</h1>
-  <p>Voici un poing stylisé directement inséré via SVG :</p>
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content">
+            <h1>Direct Du Gauche</h1>
+            <div class="hero-subtitle">
+                <img src="fist-icon.png" alt="Poing" class="fist-icon">
+                <span>Le parti coup de poing</span>
+                <img src="fist-icon.png" alt="Poing" class="fist-icon">
+            </div>
+            <a href="#programme" class="cta-button">Découvrir notre programme</a>
+        </div>
+    </section>
 
-  <svg class="fist-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-    <!-- Forme d'un poing (simplifiée) -->
-    <path d="M20,60 L20,40 Q20,30 30,30 L50,30 Q60,30 60,40 L60,60 Q60,70 50,70 L30,70 Q20,70 20,60 Z" />
-    <rect x="30" y="70" width="20" height="20" />
-  </svg>
+    <!-- Values Section -->
+    <section id="valeurs">
+        <h2 class="section-title animate-on-scroll">Nos Valeurs Fondamentales</h2>
+        <div class="values-grid">
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">⚖️</div>
+                <h3>Justice Sociale</h3>
+                <p>Nous croyons en une redistribution équitable des richesses et en la protection des plus vulnérables de notre société.</p>
+            </div>
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">🤝</div>
+                <h3>Solidarité</h3>
+                <p>La solidarité est au cœur de notre projet politique. Ensemble, nous sommes plus forts.</p>
+            </div>
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">🌱</div>
+                <h3>Écologie</h3>
+                <p>Transition écologique et justice sociale vont de pair pour construire un avenir durable.</p>
+            </div>
+            <div class="value-card animate-on-scroll">
+                <div class="value-icon">🗳️</div>
+                <h3>Démocratie Participative</h3>
+                <p>Nous prônons une démocratie vivante où chaque citoyen peut participer aux décisions qui le concernent.</p>
+            </div>
+        </div>
+    </section>
 
+    <!-- Program Section -->
+    <section id="programme">
+        <h2 class="section-title animate-on-scroll">Notre Programme</h2>
+        <div class="program-item animate-on-scroll">
+            <h3>🏥 Santé Publique Renforcée</h3>
+            <p>Augmentation des budgets de l'hôpital public, recrutement massif de personnel soignant et accès gratuit aux soins pour tous.</p>
+        </div>
+        <div class="program-item animate-on-scroll">
+            <h3>🎓 Éducation Prioritaire</h3>
+            <p>Réduction des effectifs par classe, revalorisation des salaires enseignants et gratuité réelle de l'école publique.</p>
+        </div>
+        <div class="program-item animate-on-scroll">
+            <h3>💼 Emploi et Salaires</h3>
+            <p>SMIC à 1500€ nets, réduction du temps de travail et création d'emplois publics dans les secteurs essentiels.</p>
+        </div>
+        <div class="program-item animate-on-scroll">
+            <h3>🌍 Transition Écologique</h3>
+            <p>Plan Marshall de la transition énergétique, développement des transports publics et isolation thermique des logements.</p>
+        </div>
+        <div class="program-item animate-on-scroll">
+            <h3>🏠 Logement Accessible</h3>
+            <p>Construction de logements sociaux, encadrement des loyers et lutte contre la spéculation immobilière.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title animate-on-scroll">Nous Rejoindre</h2>
+        <div class="contact-form animate-on-scroll">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nom">Nom complet</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Partagez-nous vos idées, questions ou votre motivation à nous rejoindre..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Direct Du Gauche - Tous droits réservés</p>
+        <p>Pour un avenir solidaire et démocratique</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Envoi en cours...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = 'Message envoyé !';
+                submitBtn.style.background = '#4caf50';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1000);
+        });
+
+        // Navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(211, 47, 47, 0.98)';
+            } else {
+                nav.style.background = 'rgba(211, 47, 47, 0.95)';
+            }
+        });
+    </script>
 </body>
 </html>

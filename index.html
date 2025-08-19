@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direct Du Gauche - Un Avenir Solidaire</title>
+    <title>Direct du Gauche - Pour une société plus juste</title>
     <style>
         * {
             margin: 0;
@@ -11,81 +11,19 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary-red: #d32f2f;
-            --secondary-red: #b71c1c;
-            --accent-gold: #ffc107;
-            --text-dark: #1a1a1a;
-            --text-light: #ffffff;
-            --bg-light: #f8f9fa;
-            --bg-gradient: linear-gradient(135deg, #d32f2f 0%, #b71c1c 50%, #8d1919 100%);
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
+            color: #333;
             overflow-x: hidden;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(211, 47, 47, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--text-light);
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-gold);
-        }
-
-        /* Hero Section */
         .hero {
-            height: 100vh;
-            background: var(--bg-gradient);
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--text-light);
             position: relative;
             overflow: hidden;
         }
@@ -97,190 +35,84 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,193,7,0.1)" points="0,1000 1000,0 1000,1000"/></svg>') no-repeat center center;
-            background-size: cover;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            animation: fadeInUp 1s ease-out;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .fist-icon {
-            width: 50px;
-            height: 50px;
-            animation: punch 2s ease-in-out infinite;
-            filter: brightness(0) saturate(100%) invert(78%) sepia(79%) saturate(403%) hue-rotate(360deg) brightness(103%) contrast(103%) drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-        }
-
-        @keyframes punch {
-            0%, 100% { transform: translateX(0) rotate(0deg); }
-            50% { transform: translateX(5px) rotate(-5deg); }
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-gold);
-            color: var(--text-dark);
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            background: rgba(231, 76, 60, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
-        }
-
-        /* Sections */
-        section {
-            padding: 5rem 2rem;
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-red);
-            position: relative;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--accent-gold);
-        }
-
-        /* Values Grid */
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .nav-links {
+            display: flex;
             gap: 2rem;
-            margin-top: 3rem;
+            list-style: none;
         }
 
-        .value-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
+        .nav-links a {
+            color: white;
+            text-decoration: none;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
         }
 
-        .value-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-red);
-            box-shadow: 0 15px 30px rgba(211, 47, 47, 0.2);
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-red);
-        }
-
-        /* Program Section */
-        .program-item {
-            background: var(--bg-light);
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary-red);
-            transition: all 0.3s ease;
-        }
-
-        .program-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Contact Form */
-        .contact-form {
-            background: var(--bg-gradient);
-            padding: 3rem;
-            border-radius: 20px;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: rgba(255,255,255,0.9);
-        }
-
-        .submit-btn {
-            background: var(--accent-gold);
-            color: var(--text-dark);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background: #ffb300;
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
 
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--text-light);
-            text-align: center;
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideInUp {
             from {
                 opacity: 0;
                 transform: translateY(50px);
@@ -291,154 +123,310 @@
             }
         }
 
-        /* Responsive */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #e74c3c;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .propositions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .proposition-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #e74c3c;
+        }
+
+        .proposition-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .proposition-card h3 {
+            color: #e74c3c;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .proposition-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .zucman-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 5rem 2rem;
+            margin: 3rem 0;
+        }
+
+        .zucman-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .zucman-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border-radius: 20px;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: perspective(1000px) rotateY(5deg) translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 1rem;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px) rotate(5deg);
+            background: #c0392b;
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .zucman-content {
+                grid-template-columns: 1fr;
+                text-align: center;
             }
             
-            .hero-subtitle {
-                font-size: 1.1rem;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .fist-icon {
-                width: 35px;
-                height: 35px;
-            }
-            
-            section {
-                padding: 3rem 1rem;
+            .stats {
+                grid-template-columns: 1fr;
             }
         }
 
-        /* Scroll animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Direct Du Gauche</a>
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="logo">Direct du Gauche</a>
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#valeurs">Nos Valeurs</a></li>
-                <li><a href="#programme">Programme</a></li>
+                <li><a href="#propositions">Propositions</a></li>
+                <li><a href="#zucman">Gabriel Zucman</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="accueil">
+    <section id="accueil" class="hero">
         <div class="hero-content">
-            <h1>Direct Du Gauche</h1>
-            <div class="hero-subtitle">
-                <img src="fist-icon.png" alt="Poing" class="fist-icon">
-                <span>Le parti coup de poing</span>
-                <img src="fist-icon.png" alt="Poing" class="fist-icon">
-            </div>
-            <a href="#programme" class="cta-button">Découvrir notre programme</a>
+            <h1>Direct du Gauche</h1>
+            <p>Pour une société plus juste, plus égalitaire et plus durable</p>
+            <a href="#propositions" class="cta-button">Découvrir nos propositions</a>
         </div>
     </section>
 
-    <!-- Values Section -->
-    <section id="valeurs">
-        <h2 class="section-title animate-on-scroll">Nos Valeurs Fondamentales</h2>
-        <div class="values-grid">
-            <div class="value-card animate-on-scroll">
-                <div class="value-icon">⚖️</div>
-                <h3>Justice Sociale</h3>
-                <p>Nous croyons en une redistribution équitable des richesses et en la protection des plus vulnérables de notre société.</p>
+    <section id="propositions" class="section">
+        <h2>Nos Propositions Clés</h2>
+        <div class="propositions">
+            <div class="proposition-card">
+                <span class="icon">⚖️</span>
+                <h3>Réduction des Inégalités</h3>
+                <p>Mise en place d'un impôt progressif sur le patrimoine et renforcement de la taxation des très hauts revenus pour réduire les écarts de richesse.</p>
             </div>
-            <div class="value-card animate-on-scroll">
-                <div class="value-icon">🤝</div>
-                <h3>Solidarité</h3>
-                <p>La solidarité est au cœur de notre projet politique. Ensemble, nous sommes plus forts.</p>
+            
+            <div class="proposition-card">
+                <span class="icon">🛡️</span>
+                <h3>Protection Sociale Renforcée</h3>
+                <p>Extension de la couverture sociale universelle et amélioration des prestations pour garantir la dignité de tous les citoyens.</p>
             </div>
-            <div class="value-card animate-on-scroll">
-                <div class="value-icon">🌱</div>
-                <h3>Écologie</h3>
-                <p>Transition écologique et justice sociale vont de pair pour construire un avenir durable.</p>
+            
+            <div class="proposition-card">
+                <span class="icon">🤝</span>
+                <h3>Inclusion et Solidarité</h3>
+                <p>Politiques actives d'insertion professionnelle et de lutte contre toutes les formes de discrimination sociale.</p>
             </div>
-            <div class="value-card animate-on-scroll">
-                <div class="value-icon">🗳️</div>
-                <h3>Démocratie Participative</h3>
-                <p>Nous prônons une démocratie vivante où chaque citoyen peut participer aux décisions qui le concernent.</p>
+            
+            <div class="proposition-card">
+                <span class="icon">🌱</span>
+                <h3>Transition Écologique</h3>
+                <p>Investissements massifs dans les énergies renouvelables et mise en place d'une taxe carbone progressive.</p>
+            </div>
+            
+            <div class="proposition-card">
+                <span class="icon">🏭</span>
+                <h3>Justice Fiscale</h3>
+                <p>Lutte contre l'évasion fiscale et harmonisation internationale de la fiscalité des entreprises multinationales.</p>
+            </div>
+            
+            <div class="proposition-card">
+                <span class="icon">🎓</span>
+                <h3>Éducation pour Tous</h3>
+                <p>Investissement dans l'éducation publique et formation professionnelle pour garantir l'égalité des chances.</p>
             </div>
         </div>
     </section>
 
-    <!-- Program Section -->
-    <section id="programme">
-        <h2 class="section-title animate-on-scroll">Notre Programme</h2>
-        <div class="program-item animate-on-scroll">
-            <h3>🏥 Santé Publique Renforcée</h3>
-            <p>Augmentation des budgets de l'hôpital public, recrutement massif de personnel soignant et accès gratuit aux soins pour tous.</p>
+    <section class="stats">
+        <div class="stat-card">
+            <div class="stat-number">1%</div>
+            <p>des plus riches détiennent 25% du patrimoine français</p>
         </div>
-        <div class="program-item animate-on-scroll">
-            <h3>🎓 Éducation Prioritaire</h3>
-            <p>Réduction des effectifs par classe, revalorisation des salaires enseignants et gratuité réelle de l'école publique.</p>
+        <div class="stat-card">
+            <div class="stat-number">8M</div>
+            <p>de personnes vivent sous le seuil de pauvreté en France</p>
         </div>
-        <div class="program-item animate-on-scroll">
-            <h3>💼 Emploi et Salaires</h3>
-            <p>SMIC à 1500€ nets, réduction du temps de travail et création d'emplois publics dans les secteurs essentiels.</p>
+        <div class="stat-card">
+            <div class="stat-number">-40%</div>
+            <p>d'émissions de CO₂ nécessaire d'ici 2030</p>
         </div>
-        <div class="program-item animate-on-scroll">
-            <h3>🌍 Transition Écologique</h3>
-            <p>Plan Marshall de la transition énergétique, développement des transports publics et isolation thermique des logements.</p>
-        </div>
-        <div class="program-item animate-on-scroll">
-            <h3>🏠 Logement Accessible</h3>
-            <p>Construction de logements sociaux, encadrement des loyers et lutte contre la spéculation immobilière.</p>
+        <div class="stat-card">
+            <div class="stat-number">100Mrd€</div>
+            <p>perdus chaque année par l'évasion fiscale</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title animate-on-scroll">Nous Rejoindre</h2>
-        <div class="contact-form animate-on-scroll">
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="nom">Nom complet</label>
-                    <input type="text" id="nom" name="nom" required>
+    <section id="zucman" class="zucman-section">
+        <div class="zucman-content">
+            <div class="zucman-image">
+                <div>
+                    <h3>Gabriel Zucman</h3>
+                    <p>Économiste de référence<br>Spécialiste des inégalités</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Votre message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Partagez-nous vos idées, questions ou votre motivation à nous rejoindre..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Envoyer</button>
-            </form>
+            </div>
+            <div>
+                <h2>Inspirés par Gabriel Zucman</h2>
+                <p>Nos propositions s'appuient sur les travaux de l'économiste Gabriel Zucman, professeur à Berkeley et spécialiste reconnu des inégalités de patrimoine et de l'évasion fiscale.</p>
+                <p>Ses recherches démontrent l'urgence de réformer le système fiscal international et de lutter contre les paradis fiscaux pour financer les services publics et réduire les inégalités.</p>
+                <p>Direct du Gauche porte ces idées au niveau national avec un programme concret pour une fiscalité plus juste et une économie au service de tous.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Direct Du Gauche - Tous droits réservés</p>
-        <p>Pour un avenir solidaire et démocratique</p>
+    <section class="section">
+        <h2>Pourquoi nous rejoindre ?</h2>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Face aux défis climatiques, économiques et sociaux de notre époque, il est temps d'agir avec des solutions fondées sur la recherche économique et la justice sociale.</p>
+            <p style="font-size: 1.2rem;">Rejoignez-nous pour construire ensemble une société où la prospérité est partagée, où l'environnement est protégé, et où chacun peut vivre dignement.</p>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <h3>Contactez-nous</h3>
+            <p>Ensemble pour une société plus juste</p>
+            <div class="social-links">
+                <a href="#">📧</a>
+                <a href="#">📱</a>
+                <a href="#">🐦</a>
+                <a href="#">📘</a>
+            </div>
+            <p>&copy; 2025 Direct du Gauche - Tous droits réservés</p>
+        </div>
     </footer>
 
     <script>
-        // Smooth scrolling
+        // Smooth scrolling pour les liens de navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -452,57 +440,79 @@
             });
         });
 
-        // Scroll animations
+        // Animation des cartes au scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
+        // Observer toutes les cartes de proposition
+        document.querySelectorAll('.proposition-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
         });
 
-        // Form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Envoi en cours...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = 'Message envoyé !';
-                submitBtn.style.background = '#4caf50';
+        // Observer les statistiques
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Animation des chiffres des statistiques
+        const animateNumbers = () => {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = stat.textContent;
+                const isPercentage = target.includes('%');
+                const isMillion = target.includes('M');
+                const isBillion = target.includes('Mrd');
+                let numericValue = parseFloat(target.replace(/[^\d.-]/g, ''));
                 
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.disabled = false;
-                    this.reset();
-                }, 2000);
-            }, 1000);
-        });
+                let currentValue = 0;
+                const increment = numericValue / 50;
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= numericValue) {
+                        currentValue = numericValue;
+                        clearInterval(timer);
+                    }
+                    
+                    let displayValue = Math.floor(currentValue);
+                    if (isPercentage) displayValue += '%';
+                    if (isMillion) displayValue += 'M';
+                    if (isBillion) displayValue += 'Mrd€';
+                    if (target.includes('-')) displayValue = '-' + displayValue;
+                    
+                    stat.textContent = displayValue;
+                }, 50);
+            });
+        };
 
-        // Navigation background on scroll
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(211, 47, 47, 0.98)';
-            } else {
-                nav.style.background = 'rgba(211, 47, 47, 0.95)';
-            }
-        });
+        // Déclenchement de l'animation des chiffres au scroll
+        const statsSection = document.querySelector('.stats');
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateNumbers, 500);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        statsObserver.observe(statsSection);
     </script>
 </body>
 </html>

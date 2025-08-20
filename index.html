@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direct du Gauche - Pour une société plus juste</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Direct du Gauche - Le Parti Coup de Poing</title>
     <style>
+        :root {
+            --primary-red: #dc2626;
+            --dark-red: #991b1b;
+            --light-red: #fef2f2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,67 +21,98 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+            color: var(--text-dark);
+            background: var(--background);
         }
 
-        .hero {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 2rem 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            animation: float 20s ease-in-out infinite;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-        }
-
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem 2rem;
-            background: rgba(231, 76, 60, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-content {
+        .logo-section {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
         }
 
-        .logo {
-            font-size: 1.5rem;
+        .slogan-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .fist-icon {
+            width: 60px;
+            height: 60px;
+            fill: white;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .fist-left {
+            /* Poing gauche orienté vers la droite */
+        }
+
+        .fist-right {
+            transform: scaleX(-1);
+            /* Poing gauche orienté vers la gauche (effet miroir) */
+        }
+
+        h1 {
+            font-size: 3rem;
             font-weight: bold;
-            text-decoration: none;
-            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        nav {
+            background: var(--dark-red);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .nav-links {
             display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 2rem;
             list-style: none;
         }
@@ -81,465 +120,470 @@
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: 25px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
 
         .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            background: rgba(255,255,255,0.1);
         }
 
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 1rem;
-            animation: slideInUp 1s ease-out;
-        }
-
-        .slogan {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            animation: slideInUp 1s ease-out 0.2s both;
-        }
-
-        .fist-icon {
-            font-size: clamp(40px, 8vw, 60px);
-            color: white;
-            animation: punch 2s ease-in-out infinite;
-        }
-
-        @keyframes punch {
-            0%, 100% { transform: translateX(0) scale(1); }
-            50% { transform: translateX(10px) scale(1.1); }
-        }
-
-        .hero p {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.4s both;
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: white;
-            color: #e74c3c;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideInUp 1s ease-out 0.8s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        main {
+            padding: 3rem 0;
         }
 
         .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-red);
         }
 
         .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #2c3e50;
+            color: var(--primary-red);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
-        .propositions {
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-red);
+        }
+
+        .highlight-box {
+            background: var(--light-red);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-red);
+            margin: 1.5rem 0;
+        }
+
+        .data-point {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--primary-red);
+        }
+
+        .data-point strong {
+            color: var(--primary-red);
+        }
+
+        .quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-red);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+        }
+
+        .source {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .proposals-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
 
-        .proposition-card {
+        .proposal-card {
             background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid #e74c3c;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-top: 3px solid var(--primary-red);
         }
 
-        .proposition-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .proposition-card h3 {
-            color: #e74c3c;
-            font-size: 1.5rem;
+        .proposal-card h4 {
+            color: var(--primary-red);
             margin-bottom: 1rem;
         }
 
-        .proposition-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .zucman-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 5rem 2rem;
-            margin: 3rem 0;
-        }
-
-        .zucman-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .zucman-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        footer {
+            background: var(--text-dark);
             color: white;
-            font-size: 1.2rem;
             text-align: center;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            border-radius: 20px;
-            transform: perspective(1000px) rotateY(0deg);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: perspective(1000px) rotateY(5deg) translateY(-10px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
         }
 
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin: 2rem 0;
+            margin-top: 1rem;
         }
 
         .social-links a {
-            display: inline-block;
-            padding: 1rem;
-            background: #e74c3c;
             color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            transition: color 0.3s;
         }
 
         .social-links a:hover {
-            transform: translateY(-3px) rotate(5deg);
-            background: #c0392b;
+            color: var(--primary-red);
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .logo-section {
+                flex-direction: column;
             }
-            
-            .zucman-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
 
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            .slogan-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .fist-icon {
+                width: 50px;
+                height: 50px;
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="#" class="logo">Direct du Gauche</a>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <h1>Direct du Gauche</h1>
+                <div class="slogan-container">
+                    <svg class="fist-icon fist-left" viewBox="0 0 100 100">
+                        <!-- Poing gauche levé -->
+                        <g transform="translate(50,50)">
+                            <!-- Poignet -->
+                            <rect x="-8" y="15" width="16" height="20" rx="3" fill="currentColor"/>
+                            
+                            <!-- Paume -->
+                            <ellipse cx="0" cy="5" rx="12" ry="15" fill="currentColor"/>
+                            
+                            <!-- Pouce -->
+                            <ellipse cx="-15" cy="-2" rx="4" ry="10" fill="currentColor" transform="rotate(-20)"/>
+                            
+                            <!-- Index -->
+                            <rect x="-8" y="-18" width="6" height="15" rx="3" fill="currentColor"/>
+                            
+                            <!-- Majeur -->
+                            <rect x="-2" y="-20" width="6" height="17" rx="3" fill="currentColor"/>
+                            
+                            <!-- Annulaire -->
+                            <rect x="4" y="-18" width="6" height="15" rx="3" fill="currentColor"/>
+                            
+                            <!-- Auriculaire -->
+                            <rect x="10" y="-15" width="5" height="12" rx="2.5" fill="currentColor"/>
+                        </g>
+                    </svg>
+                    <p class="slogan">Le Parti Coup de Poing</p>
+                    <svg class="fist-icon fist-right" viewBox="0 0 100 100">
+                        <!-- Poing gauche levé (identique au premier) -->
+                        <g transform="translate(50,50)">
+                            <!-- Poignet -->
+                            <rect x="-8" y="15" width="16" height="20" rx="3" fill="currentColor"/>
+                            
+                            <!-- Paume -->
+                            <ellipse cx="0" cy="5" rx="12" ry="15" fill="currentColor"/>
+                            
+                            <!-- Pouce -->
+                            <ellipse cx="-15" cy="-2" rx="4" ry="10" fill="currentColor" transform="rotate(-20)"/>
+                            
+                            <!-- Index -->
+                            <rect x="-8" y="-18" width="6" height="15" rx="3" fill="currentColor"/>
+                            
+                            <!-- Majeur -->
+                            <rect x="-2" y="-20" width="6" height="17" rx="3" fill="currentColor"/>
+                            
+                            <!-- Annulaire -->
+                            <rect x="4" y="-18" width="6" height="15" rx="3" fill="currentColor"/>
+                            
+                            <!-- Auriculaire -->
+                            <rect x="10" y="-15" width="5" height="12" rx="2.5" fill="currentColor"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
             <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#propositions">Propositions</a></li>
-                <li><a href="#zucman">Gabriel Zucman</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#inegalites">Inégalités</a></li>
+                <li><a href="#climat">Climat</a></li>
+                <li><a href="#social">Protection Sociale</a></li>
+                <li><a href="#fiscalite">Fiscalité</a></li>
+                <li><a href="#laicite">Laïcité</a></li>
+                <li><a href="#services-publics">Services Publics</a></li>
+                <li><a href="#democratie">Démocratie</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1>Direct du Gauche</h1>
-            <div class="slogan">
-                <i class="fas fa-fist-raised fist-icon"></i>
-                <span>Le parti coup de poing</span>
+    <main class="container">
+        <section id="inegalites" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7V9C15 10.1 15.9 11 17 11V20C17 21.1 16.1 22 15 22H13C11.9 22 11 21.1 11 20V14H9V20C9 21.1 8.1 22 7 22H5C3.9 22 3 21.1 3 20V11C4.1 11 5 10.1 5 9V7H3V9C3 10.1 2.1 11 1 11H0V13H1C2.1 13 3 12.1 3 11V20H5V11C4.4 11 4 10.6 4 10V8H8V10C8 10.6 7.6 11 7 11V20H9V14H11V20H13V11C12.4 11 12 10.6 12 10V8H16V10C16 10.6 15.6 11 15 11V20H17V11C16.4 11 16 10.6 16 10V8H20V10C20 10.6 19.6 11 19 11V13H20C21.1 13 22 12.1 22 11V9H21Z"/>
+                </svg>
+                Lutte contre les Inégalités Économiques et Sociales
+            </h2>
+            
+            <div class="highlight-box">
+                <h3>La réalité des inégalités fiscales en France</h3>
+                <p>Les données de l'INSEE et de l'Observatoire des inégalités révèlent une réalité choquante : notre système fiscal favorise les plus riches au détriment des classes moyennes et populaires.</p>
             </div>
-            <p>Pour une société plus juste, plus égalitaire et plus durable</p>
-            <a href="#propositions" class="cta-button">Découvrir nos propositions</a>
-        </div>
-    </section>
 
-    <section id="propositions" class="section">
-        <h2>Nos Propositions Clés</h2>
-        <div class="propositions">
-            <div class="proposition-card">
-                <span class="icon">⚖️</span>
-                <h3>Réduction des Inégalités</h3>
-                <p>Mise en place d'un impôt progressif sur le patrimoine et renforcement de la taxation des très hauts revenus pour réduire les écarts de richesse.</p>
+            <div class="data-point">
+                <strong>10% des ménages les plus riches détiennent 47% du patrimoine total français</strong><br>
+                <span class="source">Source : INSEE, Enquête Patrimoine 2021</span>
             </div>
-            
-            <div class="proposition-card">
-                <span class="icon">🛡️</span>
-                <h3>Protection Sociale Renforcée</h3>
-                <p>Extension de la couverture sociale universelle et amélioration des prestations pour garantir la dignité de tous les citoyens.</p>
-            </div>
-            
-            <div class="proposition-card">
-                <span class="icon">🤝</span>
-                <h3>Inclusion et Solidarité</h3>
-                <p>Politiques actives d'insertion professionnelle et de lutte contre toutes les formes de discrimination sociale.</p>
-            </div>
-            
-            <div class="proposition-card">
-                <span class="icon">🌱</span>
-                <h3>Transition Écologique</h3>
-                <p>Investissements massifs dans les énergies renouvelables et mise en place d'une taxe carbone progressive.</p>
-            </div>
-            
-            <div class="proposition-card">
-                <span class="icon">🏭</span>
-                <h3>Justice Fiscale</h3>
-                <p>Lutte contre l'évasion fiscale et harmonisation internationale de la fiscalité des entreprises multinationales.</p>
-            </div>
-            
-            <div class="proposition-card">
-                <span class="icon">🎓</span>
-                <h3>Éducation pour Tous</h3>
-                <p>Investissement dans l'éducation publique et formation professionnelle pour garantir l'égalité des chances.</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="stats">
-        <div class="stat-card">
-            <div class="stat-number">1%</div>
-            <p>des plus riches détiennent 25% du patrimoine français</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">8M</div>
-            <p>de personnes vivent sous le seuil de pauvreté en France</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">-40%</div>
-            <p>d'émissions de CO₂ nécessaire d'ici 2030</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">100Mrd€</div>
-            <p>perdus chaque année par l'évasion fiscale</p>
-        </div>
-    </section>
+            <div class="data-point">
+                <strong>Le taux d'effort fiscal réel décroît avec le niveau de patrimoine</strong><br>
+                Les ménages les plus modestes consacrent proportionnellement plus de leurs revenus aux impôts et taxes que les plus aisés.
+                <span class="source">Source : Observatoire des inégalités, 2023</span>
+            </div>
 
-    <section id="zucman" class="zucman-section">
-        <div class="zucman-content">
-            <div class="zucman-image">
-                <div>
-                    <h3>Gabriel Zucman</h3>
-                    <p>Économiste de référence<br>Spécialiste des inégalités</p>
+            <p>Cette situation appelle une refonte complète de notre système fiscal pour établir une véritable justice contributive. Les niches fiscales qui bénéficient principalement aux hauts revenus doivent être supprimées au profit d'un système plus progressif et équitable.</p>
+        </section>
+
+        <section id="climat" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6Z"/>
+                </svg>
+                Lutte contre le Réchauffement Climatique
+            </h2>
+
+            <div class="highlight-box">
+                <h3>Une société moins énergivore : l'urgence climatique</h3>
+                <p>Face à l'urgence climatique, nous devons repenser fondamentalement notre modèle de société et accepter de limiter certains de nos besoins pour préserver l'avenir de nos enfants.</p>
+            </div>
+
+            <div class="quote">
+                "La transition énergétique nécessite une sobriété énergétique qui passe par une remise en question de nos modes de vie et de consommation. Il ne s'agit pas de revenir à la bougie, mais de questionner l'utilité réelle de nos usages énergétiques."
+                <div class="source">- Jean-Marc Jancovici, ingénieur et expert climat</div>
+            </div>
+
+            <div class="proposals-grid">
+                <div class="proposal-card">
+                    <h4>Sobriété énergétique</h4>
+                    <p>Mise en place de politiques de sobriété énergétique dans tous les secteurs : transport, logement, industrie.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Transport public</h4>
+                    <p>Développement massif des transports publics gratuits et décarbonés pour réduire la dépendance à la voiture individuelle.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Rénovation énergétique</h4>
+                    <p>Plan national de rénovation énergétique des logements avec financement public pour les ménages modestes.</p>
                 </div>
             </div>
-            <div>
-                <h2>Inspirés par Gabriel Zucman</h2>
-                <p>Nos propositions s'appuient sur les travaux de l'économiste Gabriel Zucman, professeur à Berkeley et spécialiste reconnu des inégalités de patrimoine et de l'évasion fiscale.</p>
-                <p>Ses recherches démontrent l'urgence de réformer le système fiscal international et de lutter contre les paradis fiscaux pour financer les services publics et réduire les inégalités.</p>
-                <p>Direct du Gauche porte ces idées au niveau national avec un programme concret pour une fiscalité plus juste et une économie au service de tous.</p>
+        </section>
+
+        <section id="social" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M12,4A0,0 0 0,0 12,4A0,0 0 0,0 12,4M7.5,12A2.5,2.5 0 0,0 5,14.5A2.5,2.5 0 0,0 7.5,17A2.5,2.5 0 0,0 10,14.5A2.5,2.5 0 0,0 7.5,12M16.5,12A2.5,2.5 0 0,0 14,14.5A2.5,2.5 0 0,0 16.5,17A2.5,2.5 0 0,0 19,14.5A2.5,2.5 0 0,0 16.5,12Z"/>
+                </svg>
+                Maintien d'un Haut Niveau de Protection Sociale
+            </h2>
+
+            <p>La protection sociale française, fruit de décennies de luttes sociales, constitue un pilier fondamental de notre République. Face aux attaques libérales, nous défendons son renforcement et son extension.</p>
+
+            <div class="highlight-box">
+                <h3>Nos priorités pour la protection sociale</h3>
+                <ul style="margin-left: 2rem; margin-top: 1rem;">
+                    <li><strong>Sécurité sociale à 100%</strong> : Extension de la couverture à tous les soins, y compris dentaires, optiques et auditifs</li>
+                    <li><strong>Retraites publiques renforcées</strong> : Retour à la retraite à 60 ans avec pension complète</li>
+                    <li><strong>Assurance chômage protectrice</strong> : Durée d'indemnisation allongée et montants revalorisés</li>
+                    <li><strong>Service public de la petite enfance</strong> : Crèches publiques gratuites dans tous les territoires</li>
+                </ul>
             </div>
-        </div>
-    </section>
 
-    <section class="section">
-        <h2>Pourquoi nous rejoindre ?</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Face aux défis climatiques, économiques et sociaux de notre époque, il est temps d'agir avec des solutions fondées sur la recherche économique et la justice sociale.</p>
-            <p style="font-size: 1.2rem;">Rejoignez-nous pour construire ensemble une société où la prospérité est partagée, où l'environnement est protégé, et où chacun peut vivre dignement.</p>
-        </div>
-    </section>
-
-    <footer id="contact" class="footer">
-        <div class="footer-content">
-            <h3>Contactez-nous</h3>
-            <p>Ensemble pour une société plus juste</p>
-            <div class="social-links">
-                <a href="#">📧</a>
-                <a href="#">📱</a>
-                <a href="#">🐦</a>
-                <a href="#">📘</a>
+            <div class="data-point">
+                <strong>La France consacre 31% de son PIB aux dépenses sociales</strong><br>
+                Cette performance, parmi les meilleures au monde, doit être préservée et renforcée face aux inégalités croissantes.
+                <span class="source">Source : OCDE, 2023</span>
             </div>
-            <p>&copy; 2025 Direct du Gauche - Tous droits réservés</p>
-        </div>
-    </footer>
+        </section>
 
-    <script>
-        // Smooth scrolling pour les liens de navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <section id="fiscalite" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
+                </svg>
+                Fiscalité Juste : Appliquer les Propositions Zucman-Piketty
+            </h2>
 
-        // Animation des cartes au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+            <p>Les travaux des économistes Gabriel Zucman et Thomas Piketty ont démontré la nécessité d'une refonte complète de notre système fiscal pour lutter efficacement contre les inégalités.</p>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+            <div class="highlight-box">
+                <h3>Impôt sur la fortune : une nécessité démocratique</h3>
+                <p>Contrairement aux idées reçues, la taxation progressive des patrimoines est non seulement possible mais indispensable pour financer les services publics et réduire les inégalités.</p>
+            </div>
 
-        // Observer toutes les cartes de proposition
-        document.querySelectorAll('.proposition-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
+            <div class="proposals-grid">
+                <div class="proposal-card">
+                    <h4>Impôt progressif sur le patrimoine</h4>
+                    <p>Taxation progressive des patrimoines supérieurs à 1 million d'euros, avec des taux croissants jusqu'à 3% pour les plus hauts patrimoines.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Taxation des héritages</h4>
+                    <p>Renforcement de la taxation des héritages qui ne concerne que 20% des Français, avec exemptions pour les petits patrimoines familiaux.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Impôt sur les sociétés</h4>
+                    <p>Taux minimal d'imposition des multinationales à 25% effectif, sans possibilité d'évasion fiscale.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Lutte contre l'évasion fiscale</h4>
+                    <p>Moyens renforcés pour l'administration fiscale et coopération internationale contre les paradis fiscaux.</p>
+                </div>
+            </div>
 
-        // Observer les statistiques
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
+            <div class="data-point">
+                <strong>60 milliards d'euros de manque à gagner fiscal chaque année</strong><br>
+                L'évasion et l'optimisation fiscale privent l'État de ressources considérables qui pourraient financer nos services publics.
+                <span class="source">Source : Gabriel Zucman, "La richesse cachée des nations", 2022</span>
+            </div>
+        </section>
 
-        // Animation des chiffres des statistiques
-        const animateNumbers = () => {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const target = stat.textContent;
-                const isPercentage = target.includes('%');
-                const isMillion = target.includes('M');
-                const isBillion = target.includes('Mrd');
-                let numericValue = parseFloat(target.replace(/[^\d.-]/g, ''));
-                
-                let currentValue = 0;
-                const increment = numericValue / 50;
-                const timer = setInterval(() => {
-                    currentValue += increment;
-                    if (currentValue >= numericValue) {
-                        currentValue = numericValue;
-                        clearInterval(timer);
-                    }
-                    
-                    let displayValue = Math.floor(currentValue);
-                    if (isPercentage) displayValue += '%';
-                    if (isMillion) displayValue += 'M';
-                    if (isBillion) displayValue += 'Mrd€';
-                    if (target.includes('-')) displayValue = '-' + displayValue;
-                    
-                    stat.textContent = displayValue;
-                }, 50);
-            });
-        };
+        <section id="laicite" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M17,13H16L15,16H17L18,13H17M11,7H6L5,10H8L6,16H9L11,10H8L9,7H11M15,7V9H19V7H15M15,15V17H19V15H15M15,11V13H19V11H15Z"/>
+                </svg>
+                Défense de la Laïcité Républicaine
+            </h2>
 
-        // Déclenchement de l'animation des chiffres au scroll
-        const statsSection = document.querySelector('.stats');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(animateNumbers, 500);
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+            <div class="highlight-box">
+                <h3>Une laïcité ferme et respectueuse</h3>
+                <p>La laïcité républicaine garantit la liberté de conscience tout en préservant l'espace public de toute influence confessionnelle. Elle doit être appliquée sans faiblesse ni discrimination.</p>
+            </div>
 
-        statsObserver.observe(statsSection);
-    </script>
-</body>
-</html>
+            <p>Respecter tous les cultes ne signifie pas les financer avec l'argent public. L'État républicain doit cesser tout financement des activités confessionnelles, y compris l'enseignement privé sous contrat, quelle que soit la religion concernée.</p>
+
+            <div class="proposals-grid">
+                <div class="proposal-card">
+                    <h4>Fin du financement public du privé confessionnel</h4>
+                    <p>Suppression progressive des subventions à l'enseignement privé sous contrat et réinvestissement dans l'école publique laïque.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Laïcité dans l'espace public</h4>
+                    <p>Application stricte de la neutralité religieuse dans tous les services publics et les entreprises délégataires.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Formation à la laïcité</h4>
+                    <p>Renforcement de la formation des agents publics aux principes et à l'application de la laïcité.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services-publics" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75M12,15C13.5,15 16.5,15.75 16.5,17.25V18H7.5V17.25C7.5,15.75 10.5,15 12,15Z"/>
+                </svg>
+                Services Publics de Qualité
+            </h2>
+
+            <p>Les services publics constituent l'épine dorsale de la République sociale. Face à leur affaiblissement organisé, nous prônons leur renforcement et leur extension à de nouveaux domaines.</p>
+
+            <div class="highlight-box">
+                <h3>Réinvestir massivement dans le service public</h3>
+                <p>Après des décennies de désinvestissement, il est urgent de redonner aux services publics les moyens d'assurer leurs missions avec qualité et efficacité.</p>
+            </div>
+
+            <div class="proposals-grid">
+                <div class="proposal-card">
+                    <h4>Hôpital public</h4>
+                    <p>Plan de recrutement massif de personnels soignants et revalorisation des salaires pour garantir l'accès aux soins pour tous.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>École publique</h4>
+                    <p>Réduction des effectifs par classe, recrutement d'enseignants et personnels d'éducation, rénovation des établissements.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Justice</h4>
+                    <p>Moyens supplémentaires pour la justice civile et pénale, recrutement de magistrats et greffiers pour réduire les délais.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Transports publics</h4>
+                    <p>Développement et gratuité des transports publics dans toutes les agglomérations pour l'égalité territoriale.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="commande-publique" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/>
+                </svg>
+                Commande Publique et Souveraineté Économique
+            </h2>
+
+            <p>La commande publique représente plusieurs centaines de milliards d'euros annuels en France et en Europe. Elle doit devenir un levier de politique économique au service de l'emploi et de la justice fiscale.</p>
+
+            <div class="highlight-box">
+                <h3>Patriotisme économique et social</h3>
+                <p>Les entreprises qui bénéficient de la commande publique doivent contribuer équitablement à l'effort collectif en créant de l'emploi sur notre territoire et en payant leurs impôts.</p>
+            </div>
+
+            <div class="proposals-grid">
+                <div class="proposal-card">
+                    <h4>Critères d'emploi local</h4>
+                    <p>Priorité aux entreprises créant de l'emploi en France et en Europe dans l'attribution des marchés publics.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Transparence fiscale</h4>
+                    <p>Obligation pour les entreprises candidates de justifier de leur contribution fiscale réelle, sans optimisation abusive.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Clauses sociales et environnementales</h4>
+                    <p>Intégration systématique de critères sociaux et environnementaux dans tous les appels d'offres publics.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="democratie" class="section">
+            <h2>
+                <svg class="section-icon" viewBox="0 0 24 24">
+                    <path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12,2A10,10 0 0,1 22,12C22,12.53 21.96,13.05 21.

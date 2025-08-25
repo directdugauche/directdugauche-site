@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">💰</div>
+                    <div class="image-credit">Illustration : Fiscalité juste</div>
+                </div><!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -143,10 +147,64 @@
             border-left: 5px solid var(--primary-red);
         }
 
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-image {
+            flex: 0 0 300px;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .section-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, var(--light-red), #e5e7eb);
+        }
+
+        .section-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .section-image img::before {
+            content: "📸";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--light-red), #e5e7eb);
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            border-radius: 8px;
+        }
+
+        .section-content {
+            flex: 1;
+        }
+
         .section h2 {
             color: var(--primary-red);
             font-size: 2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -249,7 +307,26 @@
             color: var(--primary-red);
         }
 
+        .image-credit {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            text-align: right;
+            margin-top: 0.5rem;
+            opacity: 0.7;
+        }
+
         @media (max-width: 768px) {
+            .section-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-image {
+                flex: none;
+                width: 100%;
+                height: 180px;
+            }
+
             .logo-section {
                 flex-direction: column;
             }
@@ -426,12 +503,20 @@
 
     <main class="container">
         <section id="inegalites" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7V9C15 10.1 15.9 11 17 11V20C17 21.1 16.1 22 15 22H13C11.9 22 11 21.1 11 20V14H9V20C9 21.1 8.1 22 7 22H5C3.9 22 3 21.1 3 20V11C4.1 11 5 10.1 5 9V7H3V9C3 10.1 2.1 11 1 11H0V13H1C2.1 13 3 12.1 3 11V20H5V11C4.4 11 4 10.6 4 10V8H8V10C8 10.6 7.6 11 7 11V20H9V14H11V20H13V11C12.4 11 12 10.6 12 10V8H16V10C16 10.6 15.6 11 15 11V20H17V11C16.4 11 16 10.6 16 10V8H20V10C20 10.6 19.6 11 19 11V13H20C21.1 13 22 12.1 22 11V9H21Z"/>
-                </svg>
-                Lutte contre les Inégalités Économiques et Sociales
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">⚖️</div>
+                    <div class="image-credit">Illustration : Justice sociale</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7V9C15 10.1 15.9 11 17 11V20C17 21.1 16.1 22 15 22H13C11.9 22 11 21.1 11 20V14H9V20C9 21.1 8.1 22 7 22H5C3.9 22 3 21.1 3 20V11C4.1 11 5 10.1 5 9V7H3V9C3 10.1 2.1 11 1 11H0V13H1C2.1 13 3 12.1 3 11V20H5V11C4.4 11 4 10.6 4 10V8H8V10C8 10.6 7.6 11 7 11V20H9V14H11V20H13V11C12.4 11 12 10.6 12 10V8H16V10C16 10.6 15.6 11 15 11V20H17V11C16.4 11 16 10.6 16 10V8H20V10C20 10.6 19.6 11 19 11V13H20C21.1 13 22 12.1 22 11V9H21Z"/>
+                        </svg>
+                        Lutte contre les Inégalités Économiques et Sociales
+                    </h2>
+                </div>
+            </div>
             
             <div class="highlight-box">
                 <h3>La réalité des inégalités fiscales en France</h3>
@@ -453,12 +538,20 @@
         </section>
 
         <section id="climat" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6Z"/>
-                </svg>
-                Lutte contre le Réchauffement Climatique
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">🌱</div>
+                    <div class="image-credit">Illustration : Écologie et climat</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6Z"/>
+                        </svg>
+                        Lutte contre le Réchauffement Climatique
+                    </h2>
+                </div>
+            </div>
 
             <div class="highlight-box">
                 <h3>Une société moins énergivore : l'urgence climatique</h3>
@@ -487,12 +580,20 @@
         </section>
 
         <section id="social" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M12,4A0,0 0 0,0 12,4A0,0 0 0,0 12,4M7.5,12A2.5,2.5 0 0,0 5,14.5A2.5,2.5 0 0,0 7.5,17A2.5,2.5 0 0,0 10,14.5A2.5,2.5 0 0,0 7.5,12M16.5,12A2.5,2.5 0 0,0 14,14.5A2.5,2.5 0 0,0 16.5,17A2.5,2.5 0 0,0 19,14.5A2.5,2.5 0 0,0 16.5,12Z"/>
-                </svg>
-                Maintien d'un Haut Niveau de Protection Sociale
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">🏥</div>
+                    <div class="image-credit">Illustration : Protection sociale</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A2,2 0 0,1 14,4C14,4.74 13.6,5.39 13,5.73V7H14A7,7 0 0,1 21,14H22A1,1 0 0,1 23,15V18A1,1 0 0,1 22,19H21V20A2,2 0 0,1 19,22H5A2,2 0 0,1 3,20V19H2A1,1 0 0,1 1,18V15A1,1 0 0,1 2,14H3A7,7 0 0,1 10,7H11V5.73C10.4,5.39 10,4.74 10,4A2,2 0 0,1 12,2M12,4A0,0 0 0,0 12,4A0,0 0 0,0 12,4M7.5,12A2.5,2.5 0 0,0 5,14.5A2.5,2.5 0 0,0 7.5,17A2.5,2.5 0 0,0 10,14.5A2.5,2.5 0 0,0 7.5,12M16.5,12A2.5,2.5 0 0,0 14,14.5A2.5,2.5 0 0,0 16.5,17A2.5,2.5 0 0,0 19,14.5A2.5,2.5 0 0,0 16.5,12Z"/>
+                        </svg>
+                        Maintien d'un Haut Niveau de Protection Sociale
+                    </h2>
+                </div>
+            </div>
 
             <p>La protection sociale française, fruit de décennies de luttes sociales, constitue un pilier fondamental de notre République. Face aux attaques libérales, nous défendons son renforcement et son extension.</p>
 
@@ -514,12 +615,20 @@
         </section>
 
         <section id="fiscalite" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
-                </svg>
-                Fiscalité Juste : Appliquer les Propositions Zucman-Piketty
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80" alt="Calculatrice et documents fiscaux">
+                    <div class="image-credit">Photo: Unsplash - Fiscalité</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M7,15H9C9,16.08 10.37,17 12,17C13.63,17 15,16.08 15,15C15,13.9 13.96,13.5 11.76,12.97C9.64,12.44 7,11.78 7,9C7,7.21 8.47,5.69 10.5,5.18V3H13.5V5.18C15.53,5.69 17,7.21 17,9H15C15,7.92 13.63,7 12,7C10.37,7 9,7.92 9,9C9,10.1 10.04,10.5 12.24,11.03C14.36,11.56 17,12.22 17,15C17,16.79 15.53,18.31 13.5,18.82V21H10.5V18.82C8.47,18.31 7,16.79 7,15Z"/>
+                        </svg>
+                        Fiscalité Juste : Appliquer les Propositions Zucman-Piketty
+                    </h2>
+                </div>
+            </div>
 
             <p>Les travaux des économistes Gabriel Zucman et Thomas Piketty ont démontré la nécessité d'une refonte complète de notre système fiscal pour lutter efficacement contre les inégalités.</p>
 
@@ -555,12 +664,20 @@
         </section>
 
         <section id="laicite" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M17,13H16L15,16H17L18,13H17M11,7H6L5,10H8L6,16H9L11,10H8L9,7H11M15,7V9H19V7H15M15,15V17H19V15H15M15,11V13H19V11H15Z"/>
-                </svg>
-                Défense de la Laïcité Républicaine
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">🇫🇷</div>
+                    <div class="image-credit">Illustration : République laïque</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M17,13H16L15,16H17L18,13H17M11,7H6L5,10H8L6,16H9L11,10H8L9,7H11M15,7V9H19V7H15M15,15V17H19V15H15M15,11V13H19V11H15Z"/>
+                        </svg>
+                        Défense de la Laïcité Républicaine
+                    </h2>
+                </div>
+            </div>
 
             <div class="highlight-box">
                 <h3>Une laïcité ferme et respectueuse</h3>
@@ -586,12 +703,20 @@
         </section>
 
         <section id="services-publics" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75M12,15C13.5,15 16.5,15.75 16.5,17.25V18H7.5V17.25C7.5,15.75 10.5,15 12,15Z"/>
-                </svg>
-                Services Publics de Qualité
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">🏫</div>
+                    <div class="image-credit">Illustration : Services publics</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12,3L2,12H5V20H19V12H22L12,3M12,8.75A2.25,2.25 0 0,1 14.25,11A2.25,2.25 0 0,1 12,13.25A2.25,2.25 0 0,1 9.75,11A2.25,2.25 0 0,1 12,8.75M12,15C13.5,15 16.5,15.75 16.5,17.25V18H7.5V17.25C7.5,15.75 10.5,15 12,15Z"/>
+                        </svg>
+                        Services Publics de Qualité
+                    </h2>
+                </div>
+            </div>
 
             <p>Les services publics constituent l'épine dorsale de la République sociale. Face à leur affaiblissement organisé, nous prônons leur renforcement et leur extension à de nouveaux domaines.</p>
 
@@ -621,12 +746,20 @@
         </section>
 
         <section id="commande-publique" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/>
-                </svg>
-                Commande Publique et Souveraineté Économique
-            </h2>
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">🏗️</div>
+                    <div class="image-credit">Illustration : Commande publique</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"/>
+                        </svg>
+                        Commande Publique et Souveraineté Économique
+                    </h2>
+                </div>
+            </div>
 
             <p>La commande publique représente plusieurs centaines de milliards d'euros annuels en France et en Europe. Elle doit devenir un levier de politique économique au service de l'emploi et de la justice fiscale.</p>
 
@@ -652,6 +785,77 @@
         </section>
 
         <section id="democratie" class="section">
-            <h2>
-                <svg class="section-icon" viewBox="0 0 24 24">
-                    <path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12,2A10,10 0 0,1 22,12C22,12.53 21.96,13.05 21.
+            <div class="section-header">
+                <div class="section-image">
+                    <div class="placeholder-image">🗳️</div>
+                    <div class="image-credit">Illustration : Démocratie participative</div>
+                </div>
+                <div class="section-content">
+                    <h2>
+                        <svg class="section-icon" viewBox="0 0 24 24">
+                            <path d="M17,14H19V17H22V19H19V22H17V19H14V17H17V14M12,2A10,10 0 0,1 22,12C22,12.53 21.96,13.05 21.89,13.56L20.33,12C20.12,7.58 16.84,4.12 12.5,4C12.33,4 12.17,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C12.17,20 12.33,20 12.5,20C13.39,20 14.23,19.83 15,19.53L16.56,21.09C15.54,21.67 14.32,22 13,22H12A10,10 0 0,1 2,12A10,10 0 0,1 12,2M7,9L12,14L21,5L19.59,3.59L12,11.17L8.41,7.59L7,9Z"/>
+                        </svg>
+                        Démocratie Participative et Transparence
+                    </h2>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Renouveler la démocratie</h3>
+                <p>Face à la crise de confiance envers les institutions, nous proposons de nouveaux mécanismes de participation citoyenne pour rapprocher les décisions du peuple.</p>
+            </div>
+
+            <div class="proposals-grid">
+                <div class="proposal-card">
+                    <h4>Référendum d'initiative citoyenne</h4>
+                    <p>Possibilité pour 500 000 citoyens de déclencher un référendum sur toute question d'intérêt national.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Assemblées citoyennes</h4>
+                    <p>Création d'assemblées citoyennes tirées au sort pour délibérer sur les grands enjeux de société.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Transparence des élus</h4>
+                    <p>Publication obligatoire de tous les revenus, patrimoine et activités des élus et hauts fonctionnaires.</p>
+                </div>
+                <div class="proposal-card">
+                    <h4>Révocation des élus</h4>
+                    <p>Possibilité de révoquer un élu en cours de mandat en cas de manquement grave à ses engagements.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Direct du Gauche - Le Parti Coup de Poing</p>
+                    <p>Email: contact@directdugauche.fr</p>
+                    <p>Tél: 01 XX XX XX XX</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Nos Valeurs</h4>
+                    <p>Justice sociale, écologie, laïcité, services publics, démocratie participative</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-nous</h4>
+                    <div class="social-links">
+                        <a href="#">📘</a>
+                        <a href="#">🐦</a>
+                        <a href="#">📺</a>
+                        <a href="#">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #444; padding-top: 2rem; margin-top: 2rem;">
+                <p>&copy; 2024 Direct du Gauche - Le Parti Coup de Poing. Tous droits réservés.</p>
+                <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.5rem;">
+                    Images libres de droits provenant d'Unsplash - Utilisées conformément à leur licence
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

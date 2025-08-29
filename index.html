@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direct du Gauche - Pour une société plus juste</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Direct du Gauche - Le Parti Coup de Poing</title>
     <style>
+        :root {
+            --primary-red: #dc2626;
+            --dark-red: #991b1b;
+            --light-red: #fef2f2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --background: #ffffff;
+            --shadow: rgba(0,0,0,0.1);
+            --gold: #fbbf24;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,26 +23,586 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+            color: var(--text-dark);
+            background: var(--background);
+            scroll-behavior: smooth;
         }
 
-        .hero {
-            background: linear-gradient(rgba(231, 76, 60, 0.8), rgba(192, 57, 43, 0.8)), 
-                        url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=2089&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header amélioré avec animation */
+        header {
+            background: linear-gradient(135deg, var(--primary-red), var(--dark-red));
             color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
+            padding: 2rem 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        header::before {
             content: '';
             position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .slogan-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .fist-icon {
+            width: 60px;
+            height: 60px;
+            fill: white;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .fist-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .fist-right {
+            transform: scaleX(-1);
+        }
+
+        .fist-right:hover {
+            transform: scaleX(-1) scale(1.1) rotate(-5deg);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(255,255,255,0.2); }
+            to { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.4); }
+        }
+
+        .slogan {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-top: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        /* Navigation améliorée */
+        nav {
+            background: var(--dark-red);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        /* Bouton "Haut de page" flottant */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--dark-red);
+            transform: scale(1.1);
+        }
+
+        /* Sections améliorées */
+        main {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--primary-red);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .section.animate-in {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .section h2 {
+            color: var(--primary-red);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--primary-red);
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Boîtes de mise en évidence améliorées */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-red), #fee2e2);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-red);
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(220,38,38,0.1), transparent);
+            transform: translateX(-100%);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .data-point {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-red);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .data-point:hover {
+            transform: translateX(10px);
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        }
+
+        .data-point strong {
+            color: var(--primary-red);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Grille de propositions améliorée */
+        .proposals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .proposal-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-red);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .proposal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: var(--gold);
+            transition: left 0.3s ease;
+        }
+
+        .proposal-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .proposal-card:hover::before {
+            left: 0;
+        }
+
+        .proposal-card h4 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Citations améliorées */
+        .quote {
+            font-style: italic;
+            border-left: 4px solid var(--primary-red);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+            background: rgba(220,38,38,0.02);
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--primary-red);
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+
+        /* Footer amélioré */
+        footer {
+            background: linear-gradient(135deg, var(--text-dark), #111827);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-red);
+            background: white;
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Progress bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-red), var(--gold));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive amélioré */
+        @media (max-width: 768px) {
+            .logo-section {
+                flex-direction: column;
+            }
+
+            .slogan-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .fist-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .section {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .proposals-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations d'entrée */
+        @keyframes slideInFromLeft {
+            0% { transform: translateX(-100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromRight {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-slide-left {
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+
+        .animate-slide-right {
+            animation: slideInFromRight 0.8s ease-out;
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo-section animate-fade-up">
+                <h1>Direct du Gauche</h1>
+                <div class="slogan-container">
+                    <svg class="fist-icon fist-left" viewBox="0 0 100 100">
+                        <g transform="translate(50,50)">
+                            <g transform="translate(2,2)" opacity="0.3">
+                                <rect x="-10" y="12" width="20" height="25" rx="4" fill="black"/>
+                                <ellipse cx="0" cy="2" rx="15" ry="18" fill="black"/>
+                                <ellipse cx="-18" cy="-5" rx="5" ry="12" fill="black" transform="rotate(-25)"/>
+                                <rect x="-12" y="-22" width="7" height="18" rx="3.5" fill="black"/>
+                                <rect x="-4" y="-25" width="7" height="20" rx="3.5" fill="black"/>
+                                <rect x="4" y="-22" width="7" height="18" rx="3.5" fill="black"/>
+                                <rect x="12" y="-18" width="6" height="15" rx="3" fill="black"/>
+                            </g>
+                            <rect x="-10" y="10" width="20" height="25" rx="4" fill="currentColor"/>
+                            <rect x="-8" y="12" width="16" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+                            <rect x="-6" y="28" width="12" height="2" rx="1" fill="rgba(0,0,0,0.2)"/>
+                            <ellipse cx="0" cy="0" rx="15" ry="18" fill="currentColor"/>
+                            <ellipse cx="-18" cy="-7" rx="5" ry="12" fill="currentColor" transform="rotate(-25)"/>
+                            <ellipse cx="-16" cy="-12" rx="3.5" ry="8" fill="currentColor" transform="rotate(-25)"/>
+                            <line x1="-14" y1="-8" x2="-20" y2="-4" stroke="rgba(0,0,0,0.2)" stroke-width="0.5" transform="rotate(-25)"/>
+                            <rect x="-12" y="-24" width="7" height="18" rx="3.5" fill="currentColor"/>
+                            <rect x="-12" y="-20" width="7" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="-12" y1="-14" x2="-5" y2="-14" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <line x1="-12" y1="-8" x2="-5" y2="-8" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <rect x="-4" y="-27" width="7" height="20" rx="3.5" fill="currentColor"/>
+                            <rect x="-4" y="-23" width="7" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="-4" y1="-17" x2="3" y2="-17" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <line x1="-4" y1="-11" x2="3" y2="-11" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <rect x="4" y="-24" width="7" height="18" rx="3.5" fill="currentColor"/>
+                            <rect x="4" y="-20" width="7" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="4" y1="-14" x2="11" y2="-14" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <line x1="4" y1="-8" x2="11" y2="-8" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <rect x="12" y="-20" width="6" height="15" rx="3" fill="currentColor"/>
+                            <rect x="12" y="-17" width="6" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="12" y1="-12" x2="18" y2="-12" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <ellipse cx="-2" cy="5" rx="3" ry="5" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
+                            <ellipse cx="5" cy="2" rx="2" ry="4" fill="rgba(0,0,0,0.1)" opacity="0.4"/>
+                            <path d="M-8,-2 Q0,3 8,-2" stroke="rgba(0,0,0,0.2)" stroke-width="1" fill="none"/>
+                            <path d="M-6,8 Q0,12 6,8" stroke="rgba(0,0,0,0.2)" stroke-width="0.8" fill="none"/>
+                        </g>
+                    </svg>
+                    <p class="slogan">Le Parti Coup de Poing</p>
+                    <svg class="fist-icon fist-right" viewBox="0 0 100 100">
+                        <g transform="translate(50,50)">
+                            <g transform="translate(2,2)" opacity="0.3">
+                                <rect x="-10" y="12" width="20" height="25" rx="4" fill="black"/>
+                                <ellipse cx="0" cy="2" rx="15" ry="18" fill="black"/>
+                                <ellipse cx="-18" cy="-5" rx="5" ry="12" fill="black" transform="rotate(-25)"/>
+                                <rect x="-12" y="-22" width="7" height="18" rx="3.5" fill="black"/>
+                                <rect x="-4" y="-25" width="7" height="20" rx="3.5" fill="black"/>
+                                <rect x="4" y="-22" width="7" height="18" rx="3.5" fill="black"/>
+                                <rect x="12" y="-18" width="6" height="15" rx="3" fill="black"/>
+                            </g>
+                            <rect x="-10" y="10" width="20" height="25" rx="4" fill="currentColor"/>
+                            <rect x="-8" y="12" width="16" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+                            <rect x="-6" y="28" width="12" height="2" rx="1" fill="rgba(0,0,0,0.2)"/>
+                            <ellipse cx="0" cy="0" rx="15" ry="18" fill="currentColor"/>
+                            <ellipse cx="-18" cy="-7" rx="5" ry="12" fill="currentColor" transform="rotate(-25)"/>
+                            <ellipse cx="-16" cy="-12" rx="3.5" ry="8" fill="currentColor" transform="rotate(-25)"/>
+                            <line x1="-14" y1="-8" x2="-20" y2="-4" stroke="rgba(0,0,0,0.2)" stroke-width="0.5" transform="rotate(-25)"/>
+                            <rect x="-12" y="-24" width="7" height="18" rx="3.5" fill="currentColor"/>
+                            <rect x="-12" y="-20" width="7" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="-12" y1="-14" x2="-5" y2="-14" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <line x1="-12" y1="-8" x2="-5" y2="-8" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <rect x="-4" y="-27" width="7" height="20" rx="3.5" fill="currentColor"/>
+                            <rect x="-4" y="-23" width="7" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="-4" y1="-17" x2="3" y2="-17" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <line x1="-4" y1="-11" x2="3" y2="-11" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <rect x="4" y="-24" width="7" height="18" rx="3.5" fill="currentColor"/>
+                            <rect x="4" y="-20" width="7" height="6" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="4" y1="-14" x2="11" y2="-14" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <line x1="4" y1="-8" x2="11" y2="-8" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <rect x="12" y="-20" width="6" height="15" rx="3" fill="currentColor"/>
+                            <rect x="12" y="-17" width="6" height="5" rx="1" fill="rgba(255,255,255,0.1)"/>
+                            <line x1="12" y1="-12" x2="18" y2="-12" stroke="rgba(0,0,0,0.2)" stroke-width="0.5"/>
+                            <ellipse cx="-2" cy="5" rx="3" ry="5" fill="rgba(255,255,255,0.1)" opacity="0.6"/>
+                            <ellipse cx="5" cy="2" rx="2" ry="4" fill="rgba(0,0,0,0.1)" opacity="0.4"/>
+                            <path d="M-8,-2 Q0,3 8,-2" stroke="rgba(0,0,0,0.2)" stroke-width="1" fill="none"/>
+                            <path d="M-6,8 Q0,12 6,8" stroke="rgba(0,0,0,0.2)" stroke-width="0.8" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="#inegalites">Inégalités</a></li>
+                <li><a href="#climat">Climat</a></li>
+                <li><a href="#social">Protection Sociale</a></li>
+                <li><a href="#fiscalite">Fiscalité</a></li>
+                <li><a href="#laicite">Laïcité</a></li>
+                <li><a href="#services-publics">Services Publics</a></li>
+                <li><a href="#commande-publique">Commande Publique</a></li>
+                <li><a href="#democratie">Démocratie</a></li>
+            </ul>
+        </div>
+    </nav>

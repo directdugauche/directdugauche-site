@@ -180,23 +180,45 @@
 
         .propositions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
         .proposition-card {
             background: white;
-            padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-left: 5px solid #e74c3c;
+            overflow: hidden;
         }
 
         .proposition-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.8), rgba(192, 57, 43, 0.8));
+        }
+
+        .card-content {
+            padding: 2rem;
         }
 
         .proposition-card h3 {
@@ -214,34 +236,74 @@
             font-size: 3rem;
             margin-bottom: 1rem;
             display: block;
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .zucman-section {
+        .experts-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 5rem 2rem;
             margin: 3rem 0;
         }
 
-        .zucman-content {
-            max-width: 1200px;
+        .experts-content {
+            max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
         }
 
-        .zucman-image {
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .expert-card {
+            background: white;
             border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .expert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .expert-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
-            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .expert-card h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .expert-card .title {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .expert-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .stats {
@@ -310,9 +372,12 @@
                 display: none;
             }
             
-            .zucman-content {
+            .experts-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
+            }
+            
+            .propositions {
+                grid-template-columns: 1fr;
             }
             
             .stats {
@@ -326,6 +391,19 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
+
+        /* Images de fond pour les cartes */
+        .inequalities-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f39c12" width="50" height="150" x="50" y="50"/><rect fill="%23e67e22" width="50" height="100" x="150" y="100"/><rect fill="%23d35400" width="50" height="200" x="250" y="0"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Inégalités</text></svg>'); }
+        
+        .protection-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><circle cx="200" cy="100" r="80" fill="%233498db" stroke="white" stroke-width="8"/><path d="M160 100 L190 130 L240 70" stroke="white" stroke-width="6" fill="none"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Protection</text></svg>'); }
+        
+        .solidarity-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><circle cx="150" cy="80" r="30" fill="%239b59b6"/><circle cx="250" cy="80" r="30" fill="%239b59b6"/><circle cx="200" cy="140" r="30" fill="%239b59b6"/><line x1="150" y1="100" x2="200" y2="120" stroke="white" stroke-width="4"/><line x1="250" y1="100" x2="200" y2="120" stroke="white" stroke-width="4"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Solidarité</text></svg>'); }
+        
+        .ecology-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><circle cx="200" cy="100" r="70" fill="%2327ae60"/><path d="M200 50 Q220 70 200 90 Q180 70 200 50" fill="%232ecc71"/><path d="M200 90 Q220 110 200 130 Q180 110 200 90" fill="%232ecc71"/><path d="M200 130 Q220 150 200 170 Q180 150 200 130" fill="%232ecc71"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Écologie</text></svg>'); }
+        
+        .justice-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect x="180" y="40" width="40" height="120" fill="%23e67e22"/><circle cx="160" cy="80" r="20" fill="%23f39c12"/><circle cx="240" cy="80" r="20" fill="%23f39c12"/><line x1="140" y1="80" x2="180" y2="80" stroke="%23d35400" stroke-width="3"/><line x1="220" y1="80" x2="260" y2="80" stroke="%23d35400" stroke-width="3"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Justice</text></svg>'); }
+        
+        .education-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect x="100" y="80" width="200" height="80" fill="%23e74c3c"/><polygon points="100,80 200,40 300,80" fill="%23c0392b"/><rect x="190" y="90" width="20" height="50" fill="%23a93226"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Éducation</text></svg>'); }
     </style>
 </head>
 <body>
@@ -335,7 +413,7 @@
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#propositions">Propositions</a></li>
-                <li><a href="#zucman">Gabriel Zucman</a></li>
+                <li><a href="#experts">Nos Inspirations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -357,39 +435,63 @@
         <h2>Nos Propositions Clés</h2>
         <div class="propositions">
             <div class="proposition-card">
-                <span class="icon">⚖️</span>
-                <h3>Réduction des Inégalités</h3>
-                <p>Mise en place d'un impôt progressif sur le patrimoine et renforcement de la taxation des très hauts revenus pour réduire les écarts de richesse.</p>
+                <div class="card-image inequalities-bg">
+                    <span class="icon">⚖️</span>
+                </div>
+                <div class="card-content">
+                    <h3>Réduction des Inégalités</h3>
+                    <p>Mise en place d'un impôt progressif sur le patrimoine et renforcement de la taxation des très hauts revenus pour réduire les écarts de richesse.</p>
+                </div>
             </div>
             
             <div class="proposition-card">
-                <span class="icon">🛡️</span>
-                <h3>Protection Sociale Renforcée</h3>
-                <p>Extension de la couverture sociale universelle et amélioration des prestations pour garantir la dignité de tous les citoyens.</p>
+                <div class="card-image protection-bg">
+                    <span class="icon">🛡️</span>
+                </div>
+                <div class="card-content">
+                    <h3>Protection Sociale Renforcée</h3>
+                    <p>Extension de la couverture sociale universelle et amélioration des prestations pour garantir la dignité de tous les citoyens.</p>
+                </div>
             </div>
             
             <div class="proposition-card">
-                <span class="icon">🤝</span>
-                <h3>Inclusion et Solidarité</h3>
-                <p>Politiques actives d'insertion professionnelle et de lutte contre toutes les formes de discrimination sociale.</p>
+                <div class="card-image solidarity-bg">
+                    <span class="icon">🤝</span>
+                </div>
+                <div class="card-content">
+                    <h3>Inclusion et Solidarité</h3>
+                    <p>Politiques actives d'insertion professionnelle et de lutte contre toutes les formes de discrimination sociale.</p>
+                </div>
             </div>
             
             <div class="proposition-card">
-                <span class="icon">🌱</span>
-                <h3>Transition Écologique</h3>
-                <p>Investissements massifs dans les énergies renouvelables et mise en place d'une taxe carbone progressive.</p>
+                <div class="card-image ecology-bg">
+                    <span class="icon">🌱</span>
+                </div>
+                <div class="card-content">
+                    <h3>Transition Écologique</h3>
+                    <p>Investissements massifs dans les énergies renouvelables et mise en place d'une taxe carbone progressive.</p>
+                </div>
             </div>
             
             <div class="proposition-card">
-                <span class="icon">🏭</span>
-                <h3>Justice Fiscale</h3>
-                <p>Lutte contre l'évasion fiscale et harmonisation internationale de la fiscalité des entreprises multinationales.</p>
+                <div class="card-image justice-bg">
+                    <span class="icon">🏭</span>
+                </div>
+                <div class="card-content">
+                    <h3>Justice Fiscale</h3>
+                    <p>Lutte contre l'évasion fiscale et harmonisation internationale de la fiscalité des entreprises multinationales.</p>
+                </div>
             </div>
             
             <div class="proposition-card">
-                <span class="icon">🎓</span>
-                <h3>Éducation pour Tous</h3>
-                <p>Investissement dans l'éducation publique et formation professionnelle pour garantir l'égalité des chances.</p>
+                <div class="card-image education-bg">
+                    <span class="icon">🎓</span>
+                </div>
+                <div class="card-content">
+                    <h3>Éducation pour Tous</h3>
+                    <p>Investissement dans l'éducation publique et formation professionnelle pour garantir l'égalité des chances.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -413,19 +515,62 @@
         </div>
     </section>
 
-    <section id="zucman" class="zucman-section">
-        <div class="zucman-content">
-            <div class="zucman-image">
-                <div>
+    <section id="experts" class="experts-section">
+        <div class="experts-content">
+            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 2rem;">Nos Inspirations Scientifiques</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.2rem; color: #666;">
+                Nos propositions s'appuient sur les travaux de chercheurs et experts reconnus dans leurs domaines respectifs.
+            </p>
+            
+            <div class="experts-grid">
+                <div class="expert-card">
+                    <div class="expert-image">GZ</div>
                     <h3>Gabriel Zucman</h3>
-                    <p>Économiste de référence<br>Spécialiste des inégalités</p>
+                    <div class="title">Économiste, UC Berkeley</div>
+                    <p>Spécialiste des inégalités de patrimoine et de l'évasion fiscale. Ses recherches démontrent l'urgence de réformer le système fiscal international pour lutter contre les paradis fiscaux.</p>
                 </div>
-            </div>
-            <div>
-                <h2>Inspirés par Gabriel Zucman</h2>
-                <p>Nos propositions s'appuient sur les travaux de l'économiste Gabriel Zucman, professeur à Berkeley et spécialiste reconnu des inégalités de patrimoine et de l'évasion fiscale.</p>
-                <p>Ses recherches démontrent l'urgence de réformer le système fiscal international et de lutter contre les paradis fiscaux pour financer les services publics et réduire les inégalités.</p>
-                <p>Direct du Gauche porte ces idées au niveau national avec un programme concret pour une fiscalité plus juste et une économie au service de tous.</p>
+                
+                <div class="expert-card">
+                    <div class="expert-image">TP</div>
+                    <h3>Thomas Piketty</h3>
+                    <div class="title">Économiste, PSE</div>
+                    <p>Auteur du "Capital au XXIᵉ siècle", il analyse les mécanismes de concentration des richesses et propose des solutions pour réduire les inégalités structurelles.</p>
+                </div>
+                
+                <div class="expert-card">
+                    <div class="expert-image">JC</div>
+                    <h3>Julia Cagé</h3>
+                    <div class="title">Économiste, Sciences Po</div>
+                    <p>Experte en économie politique et médias, elle étudie l'impact de la concentration économique sur la démocratie et propose des réformes du financement politique.</p>
+                </div>
+                
+                <div class="expert-card">
+                    <div class="expert-image">CM</div>
+                    <h3>Chantal Mouffe</h3>
+                    <div class="title">Philosophe politique</div>
+                    <p>Théoricienne de la démocratie radicale, elle développe une critique du néolibéralisme et propose une alternative populaire démocratique.</p>
+                </div>
+                
+                <div class="expert-card">
+                    <div class="expert-image">LM</div>
+                    <h3>Louis Maurin</h3>
+                    <div class="title">Observatoire des Inégalités</div>
+                    <p>Directeur de l'Observatoire des inégalités, il analyse et documente les inégalités sociales en France pour éclairer le débat public.</p>
+                </div>
+                
+                <div class="expert-card">
+                    <div class="expert-image">JMJ</div>
+                    <h3>Jean-Marc Jancovici</h3>
+                    <div class="title">Ingénieur, The Shift Project</div>
+                    <p>Expert en énergie et climat, il prône une transition énergétique basée sur la sobriété et la décarbonation de l'économie.</p>
+                </div>
+                
+                <div class="expert-card">
+                    <div class="expert-image">AK</div>
+                    <h3>Arthur Keller</h3>
+                    <div class="title">Ingénieur, expert résilience</div>
+                    <p>Spécialiste des risques systémiques et de la résilience, il étudie les vulnérabilités de nos sociétés face aux défis environnementaux.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -482,8 +627,8 @@
             });
         }, observerOptions);
 
-        // Observer toutes les cartes de proposition
-        document.querySelectorAll('.proposition-card').forEach(card => {
+        // Observer toutes les cartes de proposition et experts
+        document.querySelectorAll('.proposition-card, .expert-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(50px)';
             card.style.transition = 'all 0.6s ease';
@@ -540,6 +685,8 @@
         }, { threshold: 0.5 });
 
         statsObserver.observe(statsSection);
-    </script>
-</body>
-</html>
+
+        // Animation staggered pour les cartes d'experts
+        const expertCards = document.querySelectorAll('.expert-card');
+        expertCards.forEach((card, index) => {
+            setTimeout(() => {

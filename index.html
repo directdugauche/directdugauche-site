@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direct du Gauche - Pour une société plus juste</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Direct du Gauche - Le Parti Coup de Poing</title>
     <style>
         * {
             margin: 0;
@@ -13,680 +12,467 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+            color: #2d2d2d;
+            background: #ffb3b3;
         }
 
-        .hero {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+        header {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
             color: white;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(1deg); }
-        }
-
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem 2rem;
-            background: rgba(231, 76, 60, 0.9);
-            backdrop-filter: blur(10px);
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
-        .nav-content {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: white;
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        nav {
+            background: #8b0000;
+            padding: 1rem 0;
+            border-bottom: 3px solid #c41e3a;
+        }
+
+        nav ul {
             list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
-        .nav-links a {
+        nav a {
             color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            transition: color 0.3s;
             padding: 0.5rem 1rem;
-            border-radius: 25px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        nav a:hover {
+            color: #ffcccb;
         }
 
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 1rem;
-            animation: slideInUp 1s ease-out;
-        }
-
-        .slogan {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            animation: slideInUp 1s ease-out 0.2s both;
-        }
-
-        .fist-icon {
-            font-size: clamp(40px, 8vw, 60px);
+        .hero {
+            background: #1a1a2e;
             color: white;
-            animation: punch 2s ease-in-out infinite;
+            padding: 4rem 2rem;
+            text-align: center;
         }
 
-        @keyframes punch {
-            0%, 100% { transform: translateX(0) scale(1); }
-            50% { transform: translateX(10px) scale(1.1); }
+        .hero-visual {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+        }
+
+        .hero-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-transform: uppercase;
+            font-weight: 900;
         }
 
         .hero p {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: slideInUp 1s ease-out 0.4s both;
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            font-weight: 500;
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        section {
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #8b0000;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .program-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 6px solid #c41e3a;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(196, 30, 58, 0.3);
+        }
+
+        .program-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 45px;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            box-shadow: 0 3px 10px rgba(196, 30, 58, 0.4);
+        }
+
+        .program-card h3 {
+            color: #1a1a2e;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .program-card p, .program-card ul {
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .program-card ul {
+            margin-top: 0.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .program-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .inspiration {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 3px solid #c41e3a;
+        }
+
+        .inspiration h3 {
+            color: #8b0000;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .experts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .expert-tag {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 700;
+            box-shadow: 0 3px 10px rgba(196, 30, 58, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .expert-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 3rem;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .cta-button {
             display: inline-block;
-            padding: 1rem 2rem;
             background: white;
-            color: #e74c3c;
+            color: #c41e3a;
+            padding: 1.2rem 3.5rem;
+            font-size: 1.3rem;
+            font-weight: 900;
             text-decoration: none;
             border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: slideInUp 1s ease-out 0.8s both;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-top: 1rem;
+            text-transform: uppercase;
         }
 
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
+        footer {
+            background: #1a1a2e;
+            color: white;
             text-align: center;
-            color: #2c3e50;
-        }
-
-        .propositions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            padding: 2rem;
             margin-top: 3rem;
         }
 
-        .proposition-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid #e74c3c;
-            overflow: hidden;
-        }
-
-        .proposition-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-image {
-            width: 100%;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .card-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(231, 76, 60, 0.8), rgba(192, 57, 43, 0.8));
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .proposition-card h3 {
-            color: #e74c3c;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .proposition-card p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-            position: relative;
-            z-index: 1;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .experts-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 5rem 2rem;
-            margin: 3rem 0;
-        }
-
-        .experts-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .experts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .expert-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .expert-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .expert-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-            font-weight: bold;
-        }
-
-        .expert-card h3 {
-            color: #2c3e50;
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .expert-card .title {
-            color: #e74c3c;
+        footer a {
+            color: #ffcccb;
+            text-decoration: none;
             font-weight: 600;
-            margin-bottom: 1rem;
         }
 
-        .expert-card p {
-            color: #666;
-            line-height: 1.6;
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .github-note {
+            background: #2d2d2d;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
             font-size: 0.95rem;
         }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
-            border-radius: 20px;
-            transform: perspective(1000px) rotateY(0deg);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: perspective(1000px) rotateY(5deg) translateY(-10px);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer {
-            background: #2c3e50;
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .social-links a {
-            display: inline-block;
-            padding: 1rem;
-            background: #e74c3c;
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-3px) rotate(5deg);
-            background: #c0392b;
+        .github-note a {
+            color: #4fc3f7;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            h1 {
+                font-size: 1.8rem;
             }
-            
-            .experts-grid {
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero-visual {
+                max-width: 100%;
+            }
+
+            .program-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .propositions {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
-
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        /* Images de fond pour les cartes */
-        .inequalities-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f39c12" width="50" height="150" x="50" y="50"/><rect fill="%23e67e22" width="50" height="100" x="150" y="100"/><rect fill="%23d35400" width="50" height="200" x="250" y="0"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Inégalités</text></svg>'); }
-        
-        .protection-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><circle cx="200" cy="100" r="80" fill="%233498db" stroke="white" stroke-width="8"/><path d="M160 100 L190 130 L240 70" stroke="white" stroke-width="6" fill="none"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Protection</text></svg>'); }
-        
-        .solidarity-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><circle cx="150" cy="80" r="30" fill="%239b59b6"/><circle cx="250" cy="80" r="30" fill="%239b59b6"/><circle cx="200" cy="140" r="30" fill="%239b59b6"/><line x1="150" y1="100" x2="200" y2="120" stroke="white" stroke-width="4"/><line x1="250" y1="100" x2="200" y2="120" stroke="white" stroke-width="4"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Solidarité</text></svg>'); }
-        
-        .ecology-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><circle cx="200" cy="100" r="70" fill="%2327ae60"/><path d="M200 50 Q220 70 200 90 Q180 70 200 50" fill="%232ecc71"/><path d="M200 90 Q220 110 200 130 Q180 110 200 90" fill="%232ecc71"/><path d="M200 130 Q220 150 200 170 Q180 150 200 130" fill="%232ecc71"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Écologie</text></svg>'); }
-        
-        .justice-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect x="180" y="40" width="40" height="120" fill="%23e67e22"/><circle cx="160" cy="80" r="20" fill="%23f39c12"/><circle cx="240" cy="80" r="20" fill="%23f39c12"/><line x1="140" y1="80" x2="180" y2="80" stroke="%23d35400" stroke-width="3"/><line x1="220" y1="80" x2="260" y2="80" stroke="%23d35400" stroke-width="3"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Justice</text></svg>'); }
-        
-        .education-bg { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect x="100" y="80" width="200" height="80" fill="%23e74c3c"/><polygon points="100,80 200,40 300,80" fill="%23c0392b"/><rect x="190" y="90" width="20" height="50" fill="%23a93226"/><text x="200" y="190" text-anchor="middle" fill="white" font-size="16">Éducation</text></svg>'); }
     </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-content">
-            <a href="#" class="logo">Direct du Gauche</a>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#propositions">Propositions</a></li>
-                <li><a href="#experts">Nos Inspirations</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Direct du Gauche</h1>
+                    <p class="tagline">Le Parti Coup de Poing</p>
+                </div>
+            </div>
         </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#programme">Notre Programme</a></li>
+            <li><a href="#valeurs">Nos Valeurs</a></li>
+            <li><a href="#contact">Nous Rejoindre</a></li>
+        </ul>
     </nav>
 
-    <section id="accueil" class="hero">
-        <div class="hero-content">
-            <h1>Direct du Gauche</h1>
-            <div class="slogan">
-                <i class="fas fa-fist-raised fist-icon"></i>
-                <span>Le parti coup de poing</span>
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-visual">
+                <img src="https://via.placeholder.com/600x800/1a73e8/ffffff?text=VOTRE+VISUEL+ICI" alt="Direct du Gauche - Le Parti Coup de Poing">
             </div>
-            <p>Pour une société plus juste, plus égalitaire et plus durable</p>
-            <a href="#propositions" class="cta-button">Découvrir nos propositions</a>
+            <h2>Le Parti Coup de Poing</h2>
+            <p>Une action politique directe pour une France plus juste, écologique et démocratique</p>
         </div>
     </section>
 
-    <section id="propositions" class="section">
-        <h2>Nos Propositions Clés</h2>
-        <div class="propositions">
-            <div class="proposition-card">
-                <div class="card-image inequalities-bg">
-                    <span class="icon">⚖️</span>
+    <section id="programme">
+        <div class="container">
+            <h2>Notre Programme</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-number">1</div>
+                    <h3>Une fiscalité plus juste</h3>
+                    <p>Application de la taxe Zucman pour une redistribution équitable des richesses et une contribution proportionnelle des plus fortunés au bien commun.</p>
                 </div>
-                <div class="card-content">
-                    <h3>Réduction des Inégalités</h3>
-                    <p>Mise en place d'un impôt progressif sur le patrimoine et renforcement de la taxation des très hauts revenus pour réduire les écarts de richesse.</p>
+
+                <div class="program-card">
+                    <div class="program-number">2</div>
+                    <h3>Lutte contre les inégalités</h3>
+                    <p>Remise à plat de la taxation du patrimoine lors des héritages pour garantir l'égalité des chances et réduire la concentration des richesses.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">3</div>
+                    <h3>Protection sociale renforcée</h3>
+                    <p>Amélioration de notre modèle de protection sociale et promotion de ce système auprès des autres économies européennes.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">4</div>
+                    <h3>Production française protégée</h3>
+                    <p>Protection de notre agriculture, industrie et services :</p>
+                    <ul>
+                        <li>Interdiction des importations agricoles non conformes aux normes françaises</li>
+                        <li>TVA sociale sur les importations issues du travail low-cost</li>
+                        <li>Taxation des entreprises hébergeant leurs données à l'étranger</li>
+                    </ul>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">5</div>
+                    <h3>Assemblée représentative</h3>
+                    <p>Construire une Assemblée Nationale qui reflète véritablement la diversité et les aspirations du peuple français.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">6</div>
+                    <h3>Référendum d'initiative populaire</h3>
+                    <p>Donner au peuple le pouvoir de proposer et décider directement sur les grandes questions nationales.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">7</div>
+                    <h3>Souveraineté nationale</h3>
+                    <p>Lutte contre les ingérences étrangères dans notre vie politique et dans l'activité de nos entreprises stratégiques.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">8</div>
+                    <h3>Droit des peuples</h3>
+                    <p>Défendre le droit des peuples à disposer d'eux-mêmes et accompagner les transitions démocratiques dans le monde.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">9</div>
+                    <h3>École publique et laïque</h3>
+                    <p>Fin du financement de l'enseignement privé pour renforcer un pôle d'éducation public, gratuit et laïc pour tous.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">10</div>
+                    <h3>Société sobre</h3>
+                    <p>Promouvoir un modèle de société plus sobre et moins énergivore pour préserver nos ressources.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">11</div>
+                    <h3>Transition écologique</h3>
+                    <p>Réduction drastique des activités émettrices de carbone pour respecter nos engagements climatiques.</p>
+                </div>
+
+                <div class="program-card">
+                    <div class="program-number">12</div>
+                    <h3>Adaptation climatique</h3>
+                    <p>Gestion anticipée des espaces face au changement climatique, aux événements extrêmes et à la montée des océans.</p>
                 </div>
             </div>
-            
-            <div class="proposition-card">
-                <div class="card-image protection-bg">
-                    <span class="icon">🛡️</span>
-                </div>
-                <div class="card-content">
-                    <h3>Protection Sociale Renforcée</h3>
-                    <p>Extension de la couverture sociale universelle et amélioration des prestations pour garantir la dignité de tous les citoyens.</p>
-                </div>
-            </div>
-            
-            <div class="proposition-card">
-                <div class="card-image solidarity-bg">
-                    <span class="icon">🤝</span>
-                </div>
-                <div class="card-content">
-                    <h3>Inclusion et Solidarité</h3>
-                    <p>Politiques actives d'insertion professionnelle et de lutte contre toutes les formes de discrimination sociale.</p>
-                </div>
-            </div>
-            
-            <div class="proposition-card">
-                <div class="card-image ecology-bg">
-                    <span class="icon">🌱</span>
-                </div>
-                <div class="card-content">
-                    <h3>Transition Écologique</h3>
-                    <p>Investissements massifs dans les énergies renouvelables et mise en place d'une taxe carbone progressive.</p>
-                </div>
-            </div>
-            
-            <div class="proposition-card">
-                <div class="card-image justice-bg">
-                    <span class="icon">🏭</span>
-                </div>
-                <div class="card-content">
-                    <h3>Justice Fiscale</h3>
-                    <p>Lutte contre l'évasion fiscale et harmonisation internationale de la fiscalité des entreprises multinationales.</p>
-                </div>
-            </div>
-            
-            <div class="proposition-card">
-                <div class="card-image education-bg">
-                    <span class="icon">🎓</span>
-                </div>
-                <div class="card-content">
-                    <h3>Éducation pour Tous</h3>
-                    <p>Investissement dans l'éducation publique et formation professionnelle pour garantir l'égalité des chances.</p>
+
+            <div class="inspiration">
+                <h3>Nos sources d'inspiration</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem; color: #555; font-weight: 500;">Notre programme s'appuie sur les travaux de chercheurs et experts reconnus :</p>
+                <div class="experts">
+                    <span class="expert-tag">Gabriel Zucman</span>
+                    <span class="expert-tag">Thomas Piketty</span>
+                    <span class="expert-tag">Daniel Cohen</span>
+                    <span class="expert-tag">Chantal Mouffe</span>
+                    <span class="expert-tag">Jean-Marc Jancovici</span>
+                    <span class="expert-tag">The Shift Project</span>
+                    <span class="expert-tag">Arthur Keller</span>
+                    <span class="expert-tag">Julia Cagé</span>
+                    <span class="expert-tag">Louis Maurin</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats">
-        <div class="stat-card">
-            <div class="stat-number">1%</div>
-            <p>des plus riches détiennent 25% du patrimoine français</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">8M</div>
-            <p>de personnes vivent sous le seuil de pauvreté en France</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">-40%</div>
-            <p>d'émissions de CO₂ nécessaire d'ici 2030</p>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">100Mrd€</div>
-            <p>perdus chaque année par l'évasion fiscale</p>
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Rejoignez le mouvement</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 2rem; font-weight: 600;">Ensemble, construisons une société plus juste, plus écologique et plus démocratique</p>
+            <a href="mailto:contact@directdugauche.org" class="cta-button">Nous contacter</a>
         </div>
     </section>
 
-    <section id="experts" class="experts-section">
-        <div class="experts-content">
-            <h2 style="text-align: center; color: #2c3e50; margin-bottom: 2rem;">Nos Inspirations Scientifiques</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.2rem; color: #666;">
-                Nos propositions s'appuient sur les travaux de chercheurs et experts reconnus dans leurs domaines respectifs.
+    <footer>
+        <div class="container">
+            <p style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">DIRECT DU GAUCHE</p>
+            <p style="font-size: 1.1rem; font-weight: 600;">LE PARTI COUP DE POING</p>
+            <p style="margin-top: 1.5rem;">
+                <a href="mailto:contact@directdugauche.org">contact@directdugauche.org</a> | 
+                <a href="http://www.directdugauche.org">www.directdugauche.org</a>
             </p>
-            
-            <div class="experts-grid">
-                <div class="expert-card">
-                    <div class="expert-image">GZ</div>
-                    <h3>Gabriel Zucman</h3>
-                    <div class="title">Économiste, UC Berkeley</div>
-                    <p>Spécialiste des inégalités de patrimoine et de l'évasion fiscale. Ses recherches démontrent l'urgence de réformer le système fiscal international pour lutter contre les paradis fiscaux.</p>
-                </div>
-                
-                <div class="expert-card">
-                    <div class="expert-image">TP</div>
-                    <h3>Thomas Piketty</h3>
-                    <div class="title">Économiste, PSE</div>
-                    <p>Auteur du "Capital au XXIᵉ siècle", il analyse les mécanismes de concentration des richesses et propose des solutions pour réduire les inégalités structurelles.</p>
-                </div>
-                
-                <div class="expert-card">
-                    <div class="expert-image">JC</div>
-                    <h3>Julia Cagé</h3>
-                    <div class="title">Économiste, Sciences Po</div>
-                    <p>Experte en économie politique et médias, elle étudie l'impact de la concentration économique sur la démocratie et propose des réformes du financement politique.</p>
-                </div>
-                
-                <div class="expert-card">
-                    <div class="expert-image">CM</div>
-                    <h3>Chantal Mouffe</h3>
-                    <div class="title">Philosophe politique</div>
-                    <p>Théoricienne de la démocratie radicale, elle développe une critique du néolibéralisme et propose une alternative populaire démocratique.</p>
-                </div>
-                
-                <div class="expert-card">
-                    <div class="expert-image">LM</div>
-                    <h3>Louis Maurin</h3>
-                    <div class="title">Observatoire des Inégalités</div>
-                    <p>Directeur de l'Observatoire des inégalités, il analyse et documente les inégalités sociales en France pour éclairer le débat public.</p>
-                </div>
-                
-                <div class="expert-card">
-                    <div class="expert-image">JMJ</div>
-                    <h3>Jean-Marc Jancovici</h3>
-                    <div class="title">Ingénieur, The Shift Project</div>
-                    <p>Expert en énergie et climat, il prône une transition énergétique basée sur la sobriété et la décarbonation de l'économie.</p>
-                </div>
-                
-                <div class="expert-card">
-                    <div class="expert-image">AK</div>
-                    <h3>Arthur Keller</h3>
-                    <div class="title">Ingénieur, expert résilience</div>
-                    <p>Spécialiste des risques systémiques et de la résilience, il étudie les vulnérabilités de nos sociétés face aux défis environnementaux.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Pourquoi nous rejoindre ?</h2>
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Face aux défis climatiques, économiques et sociaux de notre époque, il est temps d'agir avec des solutions fondées sur la recherche économique et la justice sociale.</p>
-            <p style="font-size: 1.2rem;">Rejoignez-nous pour construire ensemble une société où la prospérité est partagée, où l'environnement est protégé, et où chacun peut vivre dignement.</p>
-        </div>
-    </section>
-
-    <footer id="contact" class="footer">
-        <div class="footer-content">
-            <h3>Contactez-nous</h3>
-            <p>Ensemble pour une société plus juste</p>
-            <div class="social-links">
-                <a href="#">📧</a>
-                <a href="#">📱</a>
-                <a href="#">🐦</a>
-                <a href="#">📘</a>
-            </div>
-            <p>&copy; 2025 Direct du Gauche - Tous droits réservés</p>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">© 2025 Direct du Gauche - Tous droits réservés</p>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling pour les liens de navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Animation des cartes au scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observer toutes les cartes de proposition et experts
-        document.querySelectorAll('.proposition-card, .expert-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Observer les statistiques
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'all 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Animation des chiffres des statistiques
-        const animateNumbers = () => {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            statNumbers.forEach(stat => {
-                const target = stat.textContent;
-                const isPercentage = target.includes('%');
-                const isMillion = target.includes('M');
-                const isBillion = target.includes('Mrd');
-                let numericValue = parseFloat(target.replace(/[^\d.-]/g, ''));
-                
-                let currentValue = 0;
-                const increment = numericValue / 50;
-                const timer = setInterval(() => {
-                    currentValue += increment;
-                    if (currentValue >= numericValue) {
-                        currentValue = numericValue;
-                        clearInterval(timer);
-                    }
-                    
-                    let displayValue = Math.floor(currentValue);
-                    if (isPercentage) displayValue += '%';
-                    if (isMillion) displayValue += 'M';
-                    if (isBillion) displayValue += 'Mrd€';
-                    if (target.includes('-')) displayValue = '-' + displayValue;
-                    
-                    stat.textContent = displayValue;
-                }, 50);
-            });
-        };
-
-        // Déclenchement de l'animation des chiffres au scroll
-        const statsSection = document.querySelector('.stats');
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(animateNumbers, 500);
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        statsObserver.observe(statsSection);
-
-        // Animation staggered pour les cartes d'experts
-        const expertCards = document.querySelectorAll('.expert-card');
-        expertCards.forEach((card, index) => {
-            setTimeout(() => {
+    <div class="github-note">
+        <p>Site hébergé sur <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> | 
+        <a href="https://github.com" target="_blank">Voir le code source</a></p>
+    </div>
+</body>
+</html>

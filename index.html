@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Direct du Gauche - Le Parti Coup de Poing. Pour une France plus juste, écologique et démocratique.">
     <title>Direct du Gauche - Le Parti Coup de Poing</title>
     <style>
         * {
@@ -89,20 +90,6 @@
             text-align: center;
         }
 
-        .hero-visual {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-        }
-
-        .hero-visual img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .hero h2 {
             font-size: 2.8rem;
             margin-bottom: 1.5rem;
@@ -131,6 +118,65 @@
             text-transform: uppercase;
             font-weight: 900;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #8b0000;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .stats-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.4);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .problem-section {
+            background: #fff3e0;
+            border-left: 6px solid #ff6b6b;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .solution-section {
+            background: #e8f5e9;
+            border-left: 6px solid #4caf50;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
         }
 
         .program-grid {
@@ -169,7 +215,7 @@
             box-shadow: 0 3px 10px rgba(196, 30, 58, 0.4);
         }
 
-        .program-card h3 {
+        .program-card h4 {
             color: #1a1a2e;
             font-size: 1.4rem;
             margin-bottom: 1rem;
@@ -188,6 +234,48 @@
 
         .program-card li {
             margin-bottom: 0.5rem;
+        }
+
+        .detail-box {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #c41e3a;
+        }
+
+        .detail-box h5 {
+            color: #8b0000;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .detail-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .detail-box li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .detail-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #c41e3a;
+            font-weight: bold;
+        }
+
+        .measure-card {
+            background: white;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
         }
 
         .inspiration {
@@ -282,17 +370,17 @@
             text-decoration: underline;
         }
 
-        .github-note {
-            background: #2d2d2d;
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            font-size: 0.95rem;
+        .source-link {
+            display: inline-block;
+            color: #c41e3a;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
         }
 
-        .github-note a {
-            color: #4fc3f7;
-            font-weight: 600;
+        .source-link:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -304,10 +392,6 @@
                 font-size: 2rem;
             }
 
-            .hero-visual {
-                max-width: 100%;
-            }
-
             .program-grid {
                 grid-template-columns: 1fr;
             }
@@ -315,6 +399,10 @@
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
             }
         }
     </style>
@@ -334,106 +422,288 @@
     <nav>
         <ul>
             <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#constats">Le Constat</a></li>
             <li><a href="#programme">Notre Programme</a></li>
-            <li><a href="#valeurs">Nos Valeurs</a></li>
+            <li><a href="#mesures">Nos Mesures</a></li>
             <li><a href="#contact">Nous Rejoindre</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="accueil">
         <div class="container">
-            <div class="hero-visual">
-                <img src="Affiche Pop-Art du Parti Gauche qr code.jpg" alt="Direct du Gauche - Le Parti Coup de Poing">
-            </div>
             <h2>Le Parti Coup de Poing</h2>
             <p>Une action politique directe pour une France plus juste, écologique et démocratique</p>
+        </div>
+    </section>
+
+    <section id="constats">
+        <div class="container">
+            <h2>Le Constat : Une France à Deux Vitesses</h2>
+            
+            <div class="stats-section">
+                <h3>Les Inégalités en Chiffres</h3>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">10%</div>
+                        <div class="stat-label">du patrimoine national détenu par 0,01% des plus riches</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2×</div>
+                        <div class="stat-label">plus de TVA payée par les ménages pauvres (en % du revenu)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">45%</div>
+                        <div class="stat-label">des recettes fiscales reposent sur la TVA régressive</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">9M</div>
+                        <div class="stat-label">de personnes sous le seuil de pauvreté en France</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="problem-section">
+                <h3>Le Problème de la Fiscalité</h3>
+                <p style="font-weight: 600; margin-bottom: 1rem;">Notre système fiscal est profondément injuste :</p>
+                <ul>
+                    <li>Les ménages modestes consomment 95% de leur revenu et paient 15-17% en TVA</li>
+                    <li>Les ménages aisés ne consomment que 60% et paient seulement 7-8% en TVA</li>
+                    <li>Les grandes fortunes peuvent optimiser leur fiscalité, les salariés non</li>
+                    <li>La pauvreté persiste malgré la croissance économique</li>
+                </ul>
+                <a href="https://www.alternatives-economiques.fr/" target="_blank" class="source-link">Source : Alternatives Économiques</a>
+            </div>
+
+            <div class="problem-section">
+                <h3>La Crise Écologique</h3>
+                <p style="font-weight: 600; margin-bottom: 1rem;">L'urgence climatique nécessite une action immédiate :</p>
+                <ul>
+                    <li>Réduction drastique des émissions de carbone nécessaire</li>
+                    <li>Adaptation aux événements climatiques extrêmes</li>
+                    <li>Transition vers une société sobre en énergie</li>
+                    <li>Protection de notre biodiversité et de nos ressources</li>
+                </ul>
+                <a href="https://theshiftproject.org/" target="_blank" class="source-link">Source : The Shift Project</a>
+            </div>
+
+            <div class="problem-section">
+                <h3>La Perte de Souveraineté</h3>
+                <p style="font-weight: 600; margin-bottom: 1rem;">Notre indépendance économique est menacée :</p>
+                <ul>
+                    <li>Ingérences étrangères dans nos entreprises stratégiques</li>
+                    <li>Agriculture française mise en concurrence déloyale</li>
+                    <li>Industries délocalisées, emplois perdus</li>
+                    <li>Dépendance énergétique et technologique</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="programme">
         <div class="container">
             <h2>Notre Programme</h2>
+            
             <div class="program-grid">
                 <div class="program-card">
                     <div class="program-number">1</div>
-                    <h3>Une fiscalité plus juste</h3>
+                    <h4>Une fiscalité plus juste</h4>
                     <p>Application de la taxe Zucman pour une redistribution équitable des richesses et une contribution proportionnelle des plus fortunés au bien commun.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">2</div>
-                    <h3>Lutte contre les inégalités</h3>
+                    <h4>Lutte contre les inégalités</h4>
                     <p>Remise à plat de la taxation du patrimoine lors des héritages pour garantir l'égalité des chances et réduire la concentration des richesses.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">3</div>
-                    <h3>Protection sociale renforcée</h3>
+                    <h4>Protection sociale renforcée</h4>
                     <p>Amélioration de notre modèle de protection sociale et promotion de ce système auprès des autres économies européennes.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">4</div>
-                    <h3>Production française protégée</h3>
-                    <p>Protection de notre agriculture, industrie et services :</p>
-                    <ul>
-                        <li>Interdiction des importations agricoles non conformes aux normes françaises</li>
-                        <li>TVA sociale sur les importations issues du travail low-cost</li>
-                        <li>Taxation des entreprises hébergeant leurs données à l'étranger</li>
-                    </ul>
+                    <h4>Production française protégée</h4>
+                    <p>Protection de notre agriculture, industrie et services par des clauses miroir et une TVA sociale sur les importations.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">5</div>
-                    <h3>Assemblée représentative</h3>
+                    <h4>Assemblée représentative</h4>
                     <p>Construire une Assemblée Nationale qui reflète véritablement la diversité et les aspirations du peuple français.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">6</div>
-                    <h3>Référendum d'initiative populaire</h3>
+                    <h4>Référendum d'initiative populaire</h4>
                     <p>Donner au peuple le pouvoir de proposer et décider directement sur les grandes questions nationales.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">7</div>
-                    <h3>Souveraineté nationale</h3>
+                    <h4>Souveraineté nationale</h4>
                     <p>Lutte contre les ingérences étrangères dans notre vie politique et dans l'activité de nos entreprises stratégiques.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">8</div>
-                    <h3>Droit des peuples</h3>
+                    <h4>Droit des peuples</h4>
                     <p>Défendre le droit des peuples à disposer d'eux-mêmes et accompagner les transitions démocratiques dans le monde.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">9</div>
-                    <h3>École publique et laïque</h3>
+                    <h4>École publique et laïque</h4>
                     <p>Fin du financement de l'enseignement privé pour renforcer un pôle d'éducation public, gratuit et laïc pour tous.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">10</div>
-                    <h3>Société sobre</h3>
+                    <h4>Société sobre</h4>
                     <p>Promouvoir un modèle de société plus sobre et moins énergivore pour préserver nos ressources.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">11</div>
-                    <h3>Transition écologique</h3>
+                    <h4>Transition écologique</h4>
                     <p>Réduction drastique des activités émettrices de carbone pour respecter nos engagements climatiques.</p>
                 </div>
 
                 <div class="program-card">
                     <div class="program-number">12</div>
-                    <h3>Adaptation climatique</h3>
+                    <h4>Adaptation climatique</h4>
                     <p>Gestion anticipée des espaces face au changement climatique, aux événements extrêmes et à la montée des océans.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mesures" style="background: #f5f5f5;">
+        <div class="container">
+            <h2>Nos Mesures Concrètes</h2>
+
+            <div class="solution-section">
+                <h3>1. La Taxe Zucman : 25-30 Milliards € par an</h3>
+                <div class="detail-box">
+                    <h5>Principe</h5>
+                    <p>Un impôt annuel de 2% sur les fortunes dépassant 100 millions d'euros</p>
+                </div>
+                <div class="detail-box">
+                    <h5>Qui est concerné ?</h5>
+                    <ul>
+                        <li>Seulement 3 500 à 5 000 personnes en France (le top 0,01%)</li>
+                        <li>Fortune nette mondiale des résidents fiscaux français</li>
+                        <li>Tous les actifs : immobilier, financier, entreprises, œuvres d'art</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h5>Utilisation des recettes</h5>
+                    <ul>
+                        <li>Transition écologique</li>
+                        <li>Éducation et santé publiques</li>
+                        <li>Investissements dans les infrastructures</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <h3>2. Réforme de la Taxation des Héritages</h3>
+                <div class="detail-box">
+                    <h5>Objectifs</h5>
+                    <ul>
+                        <li>Protéger les petits héritages et héritiers modestes</li>
+                        <li>Éviter la concentration excessive du patrimoine</li>
+                        <li>Garantir l'égalité des chances</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h5>Nouveau barème (ligne directe)</h5>
+                    <ul>
+                        <li>Abattement : 200 000 € par enfant</li>
+                        <li>0 à 200 000 € : 0%</li>
+                        <li>200 001 à 400 000 € : 5%</li>
+                        <li>400 001 à 1 200 000 € : 15%</li>
+                        <li>1 200 001 à 3 000 000 € : 30%</li>
+                        <li>Plus de 3 000 000 € : 60%</li>
+                    </ul>
+                </div>
+                <div class="measure-card">
+                    <p><strong>Mesures complémentaires :</strong> Indexation automatique à l'inflation, réforme de l'assurance-vie, allégement ciblé pour les PME familiales</p>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <h3>3. TVA Plus Juste</h3>
+                <div class="detail-box">
+                    <h5>Le problème actuel</h5>
+                    <p>Les ménages pauvres paient proportionnellement 2× plus de TVA que les riches</p>
+                </div>
+                <div class="detail-box">
+                    <h5>Nos solutions</h5>
+                    <ul>
+                        <li>Crédit de TVA : 300€/an pour les ménages modestes</li>
+                        <li>Taux réduit 2% : produits écologiques (vélos, réparation, seconde main)</li>
+                        <li>Taux majoré 25% : produits à forte empreinte carbone (SUV de luxe, jets privés)</li>
+                        <li>Chèque vert redistribué aux ménages modestes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <h3>4. Souveraineté Agricole : Clause Miroir</h3>
+                <div class="detail-box">
+                    <h5>Principe de réciprocité</h5>
+                    <p>Interdiction d'importer des produits agricoles ne respectant pas les normes françaises en matière de :</p>
+                    <ul>
+                        <li>Sécurité sanitaire</li>
+                        <li>Protection de l'environnement</li>
+                        <li>Bien-être animal</li>
+                        <li>Protection sociale des travailleurs</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h5>Commande publique</h5>
+                    <ul>
+                        <li>80% d'approvisionnements français ou européens conformes</li>
+                        <li>50% issus de circuits courts (moins de 150 km)</li>
+                    </ul>
+                </div>
+                <div class="measure-card">
+                    <p><strong>Financement :</strong> Fonds de 1 milliard €/an via taxe 3% sur importations non conformes</p>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <h3>5. Souveraineté Industrielle : TVA Sociale</h3>
+                <div class="detail-box">
+                    <h5>Contribution Sociale sur les Importations (CSI)</h5>
+                    <p>Taux de 3 à 6% sur les produits importés, proportionné à :</p>
+                    <ul>
+                        <li>L'écart de charges sociales avec la France</li>
+                        <li>L'intensité carbone de la production</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h5>Fonds de Souveraineté</h5>
+                    <p>4 milliards €/an pour :</p>
+                    <ul>
+                        <li>Relocalisation des filières stratégiques (santé, énergie, électronique)</li>
+                        <li>Robotisation et décarbonation industrielle</li>
+                        <li>Formation et transition juste</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h5>Préférence nationale</h5>
+                    <ul>
+                        <li>25% de préférence pour production française/européenne</li>
+                        <li>Critère obligatoire dans les appels d'offres publics</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="inspiration">
-                <h3>Nos sources d'inspiration</h3>
+                <h3>Nos Sources d'Inspiration</h3>
                 <p style="text-align: center; margin-bottom: 1.5rem; color: #555; font-weight: 500;">Notre programme s'appuie sur les travaux de chercheurs et experts reconnus :</p>
                 <div class="experts">
                     <span class="expert-tag">Gabriel Zucman</span>
@@ -452,9 +722,164 @@
 
     <section class="cta-section" id="contact">
         <div class="container">
-            <h2>Rejoignez le mouvement</h2>
+            <h2>Rejoignez le Mouvement</h2>
             <p style="font-size: 1.3rem; margin-bottom: 2rem; font-weight: 600;">Ensemble, construisons une société plus juste, plus écologique et plus démocratique</p>
-            <a href="mailto:contact@directdugauche.org" class="cta-button">Nous contacter</a>
+            <a href="mailto:contact@directdugauche.org" class="cta-button">Nous Contacter</a>
+        </div>
+    </section>
+
+    <section style="background: white;">
+        <div class="container">
+            <h2>Impact Budgétaire Global</h2>
+            
+            <div class="stats-section" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+                <h3 style="color: #2e7d32;">Recettes Annuelles Estimées</h3>
+                <div class="stat-grid">
+                    <div class="stat-card" style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);">
+                        <div class="stat-number">25-30</div>
+                        <div class="stat-label">Milliards € - Taxe Zucman</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Milliard € - Fonds Souveraineté Agricole</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Milliards € - Fonds Souveraineté Industrielle</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);">
+                        <div class="stat-number">35+</div>
+                        <div class="stat-label">Milliards € TOTAL par an</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; font-size: 1.2rem; color: #1b5e20; font-weight: 600;">
+                    Ces recettes permettront de financer la transition écologique, la protection sociale, 
+                    l'éducation publique et la relocalisation de nos industries stratégiques.
+                </p>
+            </div>
+
+            <div class="solution-section" style="margin-top: 3rem;">
+                <h3>Nos Priorités d'Investissement</h3>
+                <div class="program-grid" style="margin-top: 2rem;">
+                    <div class="measure-card">
+                        <h5 style="color: #2e7d32; font-size: 1.3rem; margin-bottom: 1rem;">🌱 Transition Écologique</h5>
+                        <ul>
+                            <li>Décarbonation de l'industrie et des transports</li>
+                            <li>Rénovation énergétique des bâtiments</li>
+                            <li>Développement des énergies renouvelables</li>
+                            <li>Adaptation au changement climatique</li>
+                        </ul>
+                    </div>
+                    <div class="measure-card">
+                        <h5 style="color: #2e7d32; font-size: 1.3rem; margin-bottom: 1rem;">🏭 Réindustrialisation</h5>
+                        <ul>
+                            <li>Relocalisation des filières stratégiques</li>
+                            <li>Soutien aux PME et industries locales</li>
+                            <li>Formation professionnelle et reconversion</li>
+                            <li>Innovation et robotisation responsable</li>
+                        </ul>
+                    </div>
+                    <div class="measure-card">
+                        <h5 style="color: #2e7d32; font-size: 1.3rem; margin-bottom: 1rem;">🎓 Éducation Publique</h5>
+                        <ul>
+                            <li>Renforcement de l'école publique et laïque</li>
+                            <li>Fin du financement de l'enseignement privé</li>
+                            <li>Formation aux métiers de demain</li>
+                            <li>Réduction des inégalités scolaires</li>
+                        </ul>
+                    </div>
+                    <div class="measure-card">
+                        <h5 style="color: #2e7d32; font-size: 1.3rem; margin-bottom: 1rem;">🏥 Santé & Social</h5>
+                        <ul>
+                            <li>Amélioration de la protection sociale</li>
+                            <li>Renforcement de l'hôpital public</li>
+                            <li>Soutien aux personnes en difficulté</li>
+                            <li>Prévention et santé environnementale</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #f5f5f5;">
+        <div class="container">
+            <h2>Nos Valeurs</h2>
+            
+            <div class="program-grid">
+                <div class="program-card">
+                    <h4 style="color: #c41e3a; font-size: 1.6rem;">⚖️ Justice Sociale</h4>
+                    <p>Une fiscalité progressive qui fait contribuer chacun selon ses moyens. Réduction des inégalités de patrimoine et de revenu. Protection des plus vulnérables.</p>
+                </div>
+                <div class="program-card">
+                    <h4 style="color: #c41e3a; font-size: 1.6rem;">🌍 Écologie</h4>
+                    <p>Transition vers une société sobre et résiliente. Respect de nos engagements climatiques. Protection de la biodiversité et des ressources naturelles.</p>
+                </div>
+                <div class="program-card">
+                    <h4 style="color: #c41e3a; font-size: 1.6rem;">🗳️ Démocratie</h4>
+                    <p>Une assemblée véritablement représentative. Référendum d'initiative populaire. Transparence de la vie politique et lutte contre les ingérences.</p>
+                </div>
+                <div class="program-card">
+                    <h4 style="color: #c41e3a; font-size: 1.6rem;">🇫🇷 Souveraineté</h4>
+                    <p>Protection de notre agriculture et de notre industrie. Lutte contre les ingérences étrangères. Défense de nos intérêts stratégiques.</p>
+                </div>
+                <div class="program-card">
+                    <h4 style="color: #c41e3a; font-size: 1.6rem;">🤝 Solidarité</h4>
+                    <p>Renforcement de la protection sociale. Soutien aux territoires et aux populations en difficulté. Égalité des chances pour tous.</p>
+                </div>
+                <div class="program-card">
+                    <h4 style="color: #c41e3a; font-size: 1.6rem;">📚 Laïcité</h4>
+                    <p>École publique, gratuite et laïque pour tous. Séparation des espaces public et religieux. Promotion de l'esprit critique et de la connaissance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: white;">
+        <div class="container">
+            <h2>Questions Fréquentes</h2>
+            
+            <div class="detail-box" style="margin: 2rem 0;">
+                <h5>Pourquoi cibler les très grandes fortunes ?</h5>
+                <p>Parce qu'elles représentent une concentration excessive du patrimoine (10% du total pour 0,01% de la population) et que leur contribution fiscale est souvent inférieure à celle des classes moyennes en proportion de leurs revenus. Cette mesure ne concerne que 3 500 à 5 000 personnes en France.</p>
+            </div>
+
+            <div class="detail-box" style="margin: 2rem 0;">
+                <h5>La clause miroir ne va-t-elle pas augmenter les prix ?</h5>
+                <p>À court terme, certains prix pourraient légèrement augmenter, mais cela sera compensé par : 1) le crédit de TVA pour les ménages modestes, 2) le développement de circuits courts moins coûteux, 3) la fin de la concurrence déloyale qui permettra aux producteurs français de baisser leurs prix.</p>
+            </div>
+
+            <div class="detail-box" style="margin: 2rem 0;">
+                <h5>Comment financer tout cela sans creuser la dette ?</h5>
+                <p>Nos mesures sont auto-financées : la Taxe Zucman rapporte 25-30 milliards €/an, les contributions sur les importations rapportent 5 milliards €/an, et la réforme de l'héritage augmente les recettes fiscales. Au total, plus de 35 milliards € de recettes nouvelles.</p>
+            </div>
+
+            <div class="detail-box" style="margin: 2rem 0;">
+                <h5>N'est-ce pas protectionniste ?</h5>
+                <p>Non, c'est du protectionnisme juste et équitable. Nous ne refusons pas le commerce international, nous exigeons simplement que les produits importés respectent les mêmes normes que nos producteurs. C'est une question d'équité, pas de repli.</p>
+            </div>
+
+            <div class="detail-box" style="margin: 2rem 0;">
+                <h5>Les riches ne vont-ils pas fuir à l'étranger ?</h5>
+                <p>L'expérience montre que l'exil fiscal concerne une minorité. De plus, la taxe Zucman s'applique sur le patrimoine mondial des résidents fiscaux, et nous mettrons en place des mécanismes de coopération internationale. La plupart des ultra-riches restent pour la qualité de vie, leur réseau professionnel et familial.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: #1a1a2e; color: white; padding: 4rem 2rem;">
+        <div class="container">
+            <h2 style="color: white;">Un Projet Pour Tous</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Direct du Gauche n'est pas un parti de plus. C'est un mouvement citoyen qui veut redonner le pouvoir au peuple, protéger notre planète et construire une société où chacun a sa place.
+                </p>
+                <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 2rem;">
+                    Nous refusons les demi-mesures et les compromissions. Nous proposons des solutions concrètes, chiffrées, réalistes, fondées sur les travaux des meilleurs experts économiques et écologiques.
+                </p>
+                <p style="font-size: 1.4rem; line-height: 1.8; font-weight: 700;">
+                    Le changement commence maintenant. Avec vous.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -466,13 +891,13 @@
                 <a href="mailto:contact@directdugauche.org">contact@directdugauche.org</a> | 
                 <a href="http://www.directdugauche.org">www.directdugauche.org</a>
             </p>
+            <p style="margin-top: 1rem; font-size: 0.95rem;">
+                <a href="https://www.alternatives-economiques.fr/" target="_blank">Alternatives Économiques</a> | 
+                <a href="https://www.inegalites.fr/" target="_blank">Observatoire des Inégalités</a> | 
+                <a href="https://theshiftproject.org/" target="_blank">The Shift Project</a>
+            </p>
             <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">© 2025 Direct du Gauche - Tous droits réservés</p>
         </div>
     </footer>
-
-    <div class="github-note">
-        <p>Site hébergé sur <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> | 
-        <a href="https://github.com" target="_blank">Voir le code source</a></p>
-    </div>
 </body>
 </html>

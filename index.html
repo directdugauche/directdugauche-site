@@ -46,6 +46,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-contact {
+            font-size: 1.1rem;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        .header-contact a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .header-contact a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
         }
 
         h1 {
@@ -413,6 +432,12 @@
                 font-size: 1.8rem;
             }
 
+            .header-contact {
+                font-size: 0.9rem;
+                text-align: center;
+                width: 100%;
+            }
+
             .hero h2 {
                 font-size: 2rem;
             }
@@ -439,6 +464,9 @@
                 <div>
                     <h1>Direct du Gauche</h1>
                     <p class="tagline">Le Parti Coup de Poing</p>
+                </div>
+                <div class="header-contact">
+                    <a href="mailto:directdugauche@gmail.com">📧 directdugauche@gmail.com</a>
                 </div>
             </div>
         </div>
